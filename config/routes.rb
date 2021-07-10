@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
- 
+
+  get 'contacts/new'
+  get 'users/show'
+
+  get 'users/edit'
+
   get 'shopping_lists/index'
 
   get 'weekly_menus/index'
@@ -13,6 +18,7 @@ Rails.application.routes.draw do
   resources :daily_menus, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :weekly_menus, only: [:index]
   resources :shopping_lists, only:[:index, :create, :edit, :update, :destroy]
+  resources :contacts, only:[:new, :create]
 
 
 end
