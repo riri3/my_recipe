@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  recipe_id: 1
+  WeeklyMenu_id: 1
+  memo: MyText
+
+two:
+  user_id: 1
+  recipe_id: 1
+  WeeklyMenu_id: 1
+  memo: MyText

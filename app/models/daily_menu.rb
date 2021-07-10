@@ -1,0 +1,2 @@
+class DailyMenu < ApplicationRecord
+end

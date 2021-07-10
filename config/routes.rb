@@ -1,3 +1,18 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
+  get 'shopping_lists/index'
+
+  get 'weekly_menus/index'
+
+  devise_for :users
+  root to: 'homes#top'
+  get 'how_to_use' => 'homes#how_to_use'
+
+  resources :users, only: [:show, :edit, :update]
+  resources :recipes
+  resources :daily_menus, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :weekly_menus, only: [:index]
+  resources :shopping_lists, only:[:index, :create, :edit, :update, :destroy]
+
+
 end
