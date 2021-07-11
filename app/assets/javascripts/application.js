@@ -10,11 +10,24 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
 
+//= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+/*global $*/
+
+
+
+// TOPへ戻るボタン
+$(function() {
+  $('#back a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
+  });
+});

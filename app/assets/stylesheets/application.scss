@@ -13,9 +13,25 @@
  *= require_tree .
  *= require_self
  */
+ @charset "UTF-8";
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// TOPへ戻る
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+
 
  body {
   background-color: #D9D9D9;

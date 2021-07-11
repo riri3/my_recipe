@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8 /">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/a5704bc3d2.js" crossorigin="anonymous"></script>
     <title>MY RECIPE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
@@ -19,5 +20,17 @@
    <footer class='d-flex align-items-center justify-content-center'>
     <h6>Copyright ©2021 R.Kamijo | All rights reserved.</h6>
    </footer>
+
+    <!--TOP戻るボタン-->
+    <span id="back">
+      <a href="#">
+        <i class="far fa-arrow-circle-up"></i>
+      </a>
+    </span>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+
   </body>
 </html>
