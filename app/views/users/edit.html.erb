@@ -1,8 +1,12 @@
+<%= form_with model: @user do |f| %>
+　<%= render 'layouts/errors', obj: f.object %>
+<% end %>
+
 <div class="container">
 
 　<div class="row">
 　  <div class="mx-auto">
-　   <h4>情報編集画面</h4>
+　   <h4>My page編集画面</h4>
 　    <%= form_with model:@user, local:true do |f| %>
 
 　     <table>

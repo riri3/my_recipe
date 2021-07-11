@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  
-  has_many :recipe_ingredients, presence: true, dependent: :destroy
-  
+
+  has_many :recipe_ingredients, dependent: :destroy
+
 end

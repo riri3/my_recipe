@@ -1,2 +1,43 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="container">
+ <div class="row">
+  <div class="col-md-6 offset-md-2">
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">New Recipe</h5>
+  </div>
+ </div>
+
+  <% @recipe.each do |recipe| %>
+
+  <div class="row mt-5 offset-md-2 page-title">
+    <div class="col-md-5 text-center">
+      <%= attachment_image_tag recipe, :image, format: 'png', size: "300x300", fallback: "no-image.png" %>
+    </div>
+    <div class="col-md-5 ml-5 text-left">
+
+     <div class="row my-2">
+      <div class="col">レシピ名</div>
+      <div class="col"><%= recipe.name %></div>
+     </div>
+
+　   <div class="row my-2">
+      <div class="col">ジャンル</div>
+      <div class="col"><%= recipe.genre %></div>
+     </div>
+
+     <div class="row my-2">
+       <div class="col">材料</div>
+       <!--<div class="col"><= @ingredients.name %></div>-->
+     </div>
+
+     <div class="row my-2">
+      <div class="col">レシピ</div>
+      <div class="col"><%= recipe.step %></div>
+     </div>
+
+
+  </div><!--col-->
+  </div><!--row-->
+
+  <%= link_to "編集する", edit_recipe_path(recipe.id), class: 'btn btn-success' %>
+  <% end %>
+
+</div><!--container-->

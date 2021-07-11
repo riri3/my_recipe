@@ -1,5 +1,5 @@
 class Genre < ApplicationRecord
-  
-  has_many :recipes, presence: true, dependent: :destroy
-  
+
+  has_many :recipes, dependent: :destroy
+
 end
