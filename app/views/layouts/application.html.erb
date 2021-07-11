@@ -1,50 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyRecipe</title>
+    <title>MY RECIPE</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-     <% if user_signed_in? %>
-      <li>
-       <%= link_to '使い方', how_to_use_path %>
-      </li>
-      <li>
-       <%= link_to '新規レシピ登録', new_recipe_path %>
-      </li>
-      <li>
-       <%= link_to 'レシピ一覧', recipes_path %>
-      </li>
-      <li>
-       <%= link_to 'マイページ', user_path(current_user.id) %>
-      </li>
-      <li>
-       <%= link_to 'contact', new_contact_path %>
-      </li>
-
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-    　<li>
-       <%= link_to '使い方', how_to_use_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
+    <%= render 'layouts/header' %>
 
     <%= yield %>
 
    <footer class='d-flex align-items-center justify-content-center'>
-    <h6>Copyright ©2021 All rights reserved by R.Kamijo</h6>
+    <h6>Copyright ©2021 R.Kamijo | All rights reserved.</h6>
    </footer>
   </body>
 </html>

@@ -1,0 +1,25 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <%= link_to "MY RECIPE", root_path, class: "navbar-brand header-logo"%>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+         <li><%= link_to '使い方', how_to_use_path %></li>
+         <li><%= link_to '新規レシピ登録', new_recipe_path %></li>
+         <li><%= link_to 'レシピ一覧', recipes_path %></li>
+         <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
+         <li><%= link_to 'contact', new_contact_path %></li>
+         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+         <li><%= link_to '使い方', how_to_use_path %></li>
+         <li><%= link_to "新規登録", new_user_registration_path %></li>
+         <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+        </ul>
+      </div>
+  </nav>
+  <!--<img src="assets/logo.png" class="d-block mx-auto">-->
+</header>
