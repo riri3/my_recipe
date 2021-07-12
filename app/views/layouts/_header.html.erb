@@ -1,6 +1,10 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <%= link_to "MY RECIPE", root_path, class: "navbar-brand header-logo"%>
+    <% if user_signed_in? %>
+     <%= link_to "MY RECIPE", weekly_menus_path, class: "navbar-brand header-logo"%>
+    <% else %>
+     <%= link_to "MY RECIPE", root_path, class: "navbar-brand header-logo"%>
+    <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
