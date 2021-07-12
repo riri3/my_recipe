@@ -1,0 +1,14 @@
+<div class="nested-fields form-inline">
+   <%= f.fields_for :ingredients do |builder| %>
+     <%= render 'ingredient_fields', f: builder %>
+   <% end %>
+
+
+  <div class="form-group">
+    <%= f.label :"分量" %>
+    <%= f.number_field :quantity, placeholder: "1.5", min: '0.0',　steps: '0.5', size: "5", class: "form-control" %>
+  </div>
+
+  <%= link_to_remove_association "削除", f %>
+
+</div>

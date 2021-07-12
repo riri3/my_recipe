@@ -2,18 +2,17 @@
 　<%= render 'layouts/errors', obj: f.object %>
 <% end %>
 
-<div class="container">
 
- <div class="row">
-  <h4>New Recipe</h4>
- </div>
+
+<div class="container">
 
   <%= form_with model: @recipe, local:true do |f| %>
 
   <div class="row">
-    <div class="col-xs-4 text-center">
-     <table>
+    <div class="col-xs-4">
+     <h4>New Recipe</h4>
 
+     <table>
       <tr>
        <th>レシピ画像</th>
        <td><%= f.attachment_field :image %></td>
@@ -30,34 +29,30 @@
       </tr>
 
       <tr>
+       <div id="ingredients" class="form-group">
        <th>材料</th>
-       <td></td>
+       <td>
+        <%= f.fields_for :recipe_ingredients do |builder| %>
+         <%= render 'recipe_ingredient_fields', f: builder %>
+          <div id="links">
+           <td><%= link_to_add_association "+", f, :recipe_ingredients %></td><br/>
+          </div>
+        <% end %>
+        </td>
+       </div>
       </tr>
-
-   <!--    <= f.text_field :@ingredient, placeholder: "材料名", size: "30", class: "form-control" %>-->
-   <!--    <= f.text_field :@recipe_ingredients, placeholder: "分量", size: "30", class: "form-control" %>-->
-   <!--    <= f.text_field :@ingredient, placeholder: "単位", size: "10", class: "form-control" %>-->
-   <!--    <= f.submit '+', class: 'btn btn-primary' %>-->
-
-   <!--<= @ingredients.each do |ingredient| %>-->
-   <!--<tr>-->
-   <!--  <td><= @ingredients.name %></td>-->
-   <!--  <td><= @ingredients.recipe_ingredients.quantity %></td>-->
-   <!--  <td><= @ingredients.unit %></td>-->
-   <!--</tr>-->
-   <!--< end %>-->
-
 
      <tr>
       <th>レシピ</th>
       <td><%= f.text_area :step, placeholder: "レシピを記入してください", size: "30x5", class: "form-control" %></td>
-     </tr>
+    </tr>
+</table>
 
-  </table>
-  </div><!--col-->
-  </div><!--row-->
+　 　<div class="text-center">
+　 　  <%= f.submit "レシピを登録", class: 'btn btn-outline-secondary' %>
+　 　</div>
 
-  <%= f.submit "レシピを登録", class: 'btn btn-success' %>
-  <% end %>
-
+　　</div>
+　</div>
+ <% end %>
 </div><!--container-->

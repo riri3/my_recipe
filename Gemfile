@@ -63,3 +63,4 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
+gem 'cocoon'

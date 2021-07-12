@@ -3,13 +3,12 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @ingredient = Ingredient.new
+    @recipe.recipe_ingredients.build #ネスト
+    # @recipe.recipe_ingredients.ingredients.build
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    # @ingredient = Ingredient.new(ingredient_params)
-    # @ingredient.save
+    @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
       flash[:notice] = "新しいレシピを登録しました！"
       redirect_to recipe_path(@recipe.id)
@@ -53,11 +52,9 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(, :genre_id, :name, :step, :image)
+    params.require(:recipe).permit(:genre_id, :name, :step, :image,
+                                   recipe_ingredients_attributes: [:id, :recipe_id, :ingredient_id, :quantity, :_destroy,
+                                   ingredient_attributes:[:name, :unit]])
   end
-
-  # def ingredient_params
-  #   params.require(:ingredient).permit(:name, :unit)
-  # end
 
 end
