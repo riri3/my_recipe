@@ -3,3 +3,59 @@
 <% end %>
 
 <div class="container">
+
+  <%= form_with model: @recipe, local:true do |f| %>
+
+  <div class="row">
+    <div class="col-md-10">
+     <h4>レシピ編集</h4>
+
+     <table class="table">
+      <tr>
+       <th>レシピ画像</th>
+       <td><%= f.attachment_field :image, fallback: "no-image.jpg" %></td>
+      </tr>
+
+      <tr>
+       <th>レシピ名</th>
+       <td><%= f.text_field :name, autoforcus: true, placeholder: "レシピ名", size: "30", class: "form-control" %></td>
+      </tr>
+
+      <tr>
+       <th>ジャンル</th>
+       <td><%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></td>
+      </tr>
+
+      <tr>
+       <div id="ingredients" class="form-group">
+        <th>材料</th>
+         <td>
+           <ul class="list-inline">
+             <%= f.fields_for :ingredients do |builder| %>
+               <%= render 'ingredient_fields', f: builder %>
+                 <div id="links">
+               <%= link_to_add_association "+", f, :ingredients %>
+             <% end %>
+         </td>
+         <br/>
+       </div>
+      </tr>
+
+      <tr>
+       <th>レシピ</th>
+       <td><%= f.text_area :step, placeholder: "レシピを記入してください", size: "30x5", class: "form-control" %></td>
+      </tr>
+     </table>
+
+     <br>
+
+     <div class="text-center">
+      <%= f.submit "変更を保存", class: 'btn btn-outline-secondary' %>
+     </div>
+     
+     
+
+    </div>
+   </div>
+  <% end %>
+</div><!--container-->

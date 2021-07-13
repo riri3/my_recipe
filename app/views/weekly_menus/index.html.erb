@@ -1,10 +1,13 @@
- <img src="assets/logo.png" class="d-block mx-auto" alt="">
-
 <div class="container">
+ <div class="row">
+  <img src="assets/logo.png" class="d-block mx-auto" alt=""></img>
+ </div>
+
+
   <div class="row">
-    <div class="col-md-3">
-      <h4>１週間の献立</h4>
-      <table class="table">
+    <div class="col-md-10 mx-auto">
+      <h4>今週の献立</h4>
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>日付/曜日</th>
@@ -15,16 +18,18 @@
           </tr>
         </thead>
 
-　　　　<tbody>
-　　　    <tr>
-　　　      <td><h6>日付</h6></td>
-　　　      <td><h6>朝食</h6></td>
-　　　      <td><h6>昼食</h6></td>
-　　　      <td><h6>夕食</h6></td>
-　　　      <td><h6>めも</h6></td>
-　　　    </tr>
+        <tbody>
+         <tr>
+           <% @daily_menus.each do |daily_menu| %>
+           <td>日付</td>
+           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>朝食</td>
+           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>昼食</td>
+           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>夕食</td>
+           <td>めも</td>
+           <% end %>
+         </tr>
         </tbody>
-
+        
       </table>
    </div>
   </div>

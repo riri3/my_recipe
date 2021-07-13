@@ -1,2 +1,18 @@
-<h1>ShoppingLists#index</h1>
-<p>Find me in app/views/shopping_lists/index.html.erb</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <h4>shopping List</h4>
+        <h6>今週１週間分の献立に必要なお買い物リストです。</h6>
+
+        <%# @daily_menus.each do |daily_menu| %>
+
+        <%# end %>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id=daily_menu>
+          <label class="form-check-label" for=daily_menu><= daily_menu.recipe.name %></label>
+        </div>
+
+
+      </div>
+    </div>
+</div>

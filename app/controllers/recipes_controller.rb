@@ -3,8 +3,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.recipe_ingredients.build #ネスト
-    # @recipe.recipe_ingredients.ingredients.build
+    @recipe.recipe_ingredients.build
   end
 
   def create
@@ -26,12 +25,14 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @genres = Genre.all
+    @genres = Genre.find(params[:id])
+    @ingredients = Ingredient.where(recipe_id: @recipe)
   end
 
   def edit
     @recipe = Recipe.find(params[:id])
     @genres = Genre.all
+    @recipe.recipe_ingredients.build
   end
 
   def update

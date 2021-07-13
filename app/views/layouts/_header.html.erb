@@ -1,30 +1,32 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <% if user_signed_in? %>
+    <% if user_signed_in? %><!--ログイン後にロゴを押下するとweeklymenuへリンク-->
      <%= link_to "MY RECIPE", weekly_menus_path, class: "navbar-brand header-logo"%>
-    <% else %>
+    <% else %><!--ログイン前にロゴを押下するとtopページへリンク-->
      <%= link_to "MY RECIPE", root_path, class: "navbar-brand header-logo"%>
     <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-         <li class="nav-welcome nav-link text-light">ようこそ、<%= current_user.name %>さん！</li>
-         <li><%= link_to ' How to use  | ', how_to_use_path %></li>
-         <li><%= link_to ' New Recipe  |', new_recipe_path %></li>
-         <li><%= link_to ' All Recipes |', recipes_path %></li>
-         <li><%= link_to ' My page  |', user_path(current_user.id) %></li>
-         <li><%= link_to ' contact  |', new_contact_path %></li>
-         <li><%= link_to " Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-         <li><%= link_to ' How to use  |', how_to_use_path %></li>
-         <li><%= link_to " 新規登録  |", new_user_registration_path %></li>
-         <li><%= link_to " ログイン", new_user_session_path %></li>
-        <% end %>
-        </ul>
-      </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+       <li class="nav-welcome nav-link text-light">ようこそ、<%= current_user.name %>さん！</li>
+       <li><%= link_to ' How to use  | ', how_to_use_path %></li>
+       <li><%= link_to ' New Recipe  |', new_recipe_path %></li>
+       <li><%= link_to ' All Recipes |', recipes_path %></li>
+       <li><%= link_to ' My page  |', user_path(current_user.id) %></li>
+       <li><%= link_to ' Shopping List  |', shopping_lists_path(current_user.id) %></li>
+       <li><%= link_to ' Contact  |', new_contact_path %></li>
+       <li><%= link_to " Log out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+       <li><%= link_to ' How to use  |', how_to_use_path %></li>
+       <li><%= link_to " 新規登録  |", new_user_registration_path %></li>
+       <li><%= link_to " ログイン", new_user_session_path %></li>
+      <% end %>
+      </ul>
+    </div>
   </nav>
-  <!--<img src="assets/logo.png" class="d-block mx-auto">-->
 </header>

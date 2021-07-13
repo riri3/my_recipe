@@ -2,6 +2,6 @@ class WeeklyMenusController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @weekly_menus = WeeklyMenu.all
+    @daily_menus = DailyMenu.all
   end
 end

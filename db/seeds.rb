@@ -15,17 +15,14 @@ Genre.create!(id: 2,
               )
 
 Genre.create!(id: 3,
-              name: "イタリアン"
-              )
-
-Genre.create!(id: 4,
               name: "中華"
               )
 
-Genre.create!(id: 5,
+Genre.create!(id: 4,
               name: "アジア/エスニック"
               )
 
-Genre.create!(id: 6,
+Genre.create!(id: 5,
               name: "その他"
               )
+
