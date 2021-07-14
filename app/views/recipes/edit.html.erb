@@ -42,7 +42,7 @@
       </tr>
 
       <tr>
-       <th>レシピ</th>
+       <th>手順</th>
        <td><%= f.text_area :step, placeholder: "レシピを記入してください", size: "30x5", class: "form-control" %></td>
       </tr>
      </table>
@@ -51,11 +51,12 @@
 
      <div class="text-center">
       <%= f.submit "変更を保存", class: 'btn btn-outline-secondary' %>
+      <%= link_to "Back", recipe_path(@recipe), class: 'btn btn-outline-info' %>
      </div>
-     
-     
+
+
 
     </div>
    </div>
   <% end %>
-</div><!--container-->
+</div>

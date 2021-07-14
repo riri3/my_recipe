@@ -1,78 +1,12 @@
- <div class="container">
-  <div class="wrapper">
+<div class="container">
 
-<!--タブ名-->
-  <ul class="tab list-unstyled">
-    <li><a href="#japanese">和食</a></li>
-    <li><a href="#western">洋食</a></li>
-    <li><a href="#chinese">中華</a></li>
-    <li><a href="#ethnic">アジア/エスニック</a></li>
-    <li><a href="#others">その他</a></li>
-    <li><a href="#all">すべて</a></li>
-  </ul>
+   <%= @recipes.each do |recipe| %>
 
-<!--タブの中身-->
-  <%= @recipes.each do |recipe| %>
-    <div id="japanese" class="area">
-       <!--< if @genre =="japanese" %>-->
-      <h4>和食</h4>
-        <!--<= @genres.each do |genre| %>-->
-        <!--< end %>-->
-    </div>
-
-    <div id="western" class="area">
-      <h4>洋食</h4>
-      <ul>
-        <li>ウーロン茶</li>
-        <li>オレンジジュース</li>
-        <li>ジンジャーエール</li>
-      </ul>
-    </div>
-
-    <div id="chinese" class="area">
-      <h4>中華</h4>
-      <ul>
-        <li>カレーライス</li>
-        <li>ドリア</li>
-        <li>グラタン</li>
-      </ul>
-    </div>
-
-    <div id="ethnic" class="area">
-      <h4>アジア/エスニック</h4>
-      <ul>
-        <li>カレーライス</li>
-        <li>ドリア</li>
-        <li>グラタン</li>
-      </ul>
-    </div>
-
-    <div id="others" class="area">
-      <h4>その他</h4>
-      <ul>
-        <li>カレーライス</li>
-        <li>ドリア</li>
-        <li>グラタン</li>
-      </ul>
-    </div>
-
-    <div id="all" class="area">
-      <h4>すべて</h4>
-      <ul>
-        <li>
-          <%= link_to recipe_path(recipe) do %>
-            <%= attachment_image_tag recipe, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
-            <%= recipe.name %>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-
+    <%= link_to recipe_path(recipe) do %>
+       <%= attachment_image_tag recipe, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+       <%= recipe.name %>
     <% end %>
 
-  </div>
-  </div>
+   <% end %>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-4-1/js/5-4-1.js"></script>
-
+ </div>

@@ -26,3 +26,14 @@ Genre.create!(id: 5,
               name: "その他"
               )
 
+MealTimes.create!(id: 1,
+                  name: "朝食"
+                )
+
+MealTimes.create!(id: 2,
+                  name: "昼食"
+                )
+
+MealTimes.create!(id: 3,
+                  name: "夕食"
+                )

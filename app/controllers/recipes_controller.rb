@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.recipe_ingredients.build
+    @recipe.ingredients.build
   end
 
   def create
@@ -14,7 +14,6 @@ class RecipesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def index
@@ -25,8 +24,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @genres = Genre.find(params[:id])
-    @ingredients = Ingredient.where(recipe_id: @recipe)
+    @ingredients_ids = @recipe.recipe_ingredients.pluck(:ingredient_id) # 中間テーブルからレシピの材料idをpick up
+    @ingredients = Ingredient.where(id: @ingredients_ids)               # 材料テーブルからそのレシピの材料idをもつ材料をpick up
   end
 
   def edit
@@ -54,8 +53,7 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(:genre_id, :name, :step, :image,
-                                   recipe_ingredients_attributes: [:id, :recipe_id, :ingredient_id, :quantity, :_destroy,
-                                   ingredient_attributes:[:name, :unit]])
+                                   ingredients_attributes: [:name, :unit, :quantity])
   end
 
 end

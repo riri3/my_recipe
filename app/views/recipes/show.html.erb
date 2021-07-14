@@ -1,47 +1,46 @@
 <div class="container">
  <div class="row">
-  <div class="col-md-6 offset-md-2">
-    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">New Recipe</h5>
+  <div class="col-md-10">
+    <h3 class="d-inline page-title"><%= @recipe.name %></h3>
   </div>
  </div>
 
 
-  <div class="row mt-5 offset-md-2 page-title">
+  <div class="row mt-5">
     <div class="col-md-5 text-center">
       <%= attachment_image_tag @recipe, :image, format: 'png', size: "300x300", fallback: "no-image.png", class: "border border-white" %>
     </div>
 
-    <div class="col-md-5 ml-5 text-left">
+    <div class="col-md-6 ml-5 text-left">
 
-     <div class="row my-2">
-      <div class="col">レシピ名</div>
-      <div class="col"><%= @recipe.name %></div>
-     </div>
-
-     <div class="row my-2">
+     <div class="row">
       <div class="col">ジャンル</div>
       <div class="col"><%= @recipe.genre.name %></div>
      </div>
 
-     <div class="row my-2">
-       <div class="col">材料</div>
-       <div class="col">材料名<%= @ingredients.name %></div>
-       <!--<div class="col">単位<= @ingredients.unit %></div>-->
-       <!--<div class="col">量<= @ingredients.quantity %></div>-->
+     <div class="row">
+      <% @ingredients.each do |ingredient| %>
+        <div class="col">材料</div>
+        <div class="">材料名：<%= ingredient.name %></div>
+        <div class="">単位：<%= ingredient.unit %></div>
+        <div class="">量：<%= ingredient.quantity %></div>
+      <% end %>
      </div>
 
-     <div class="row my-2">
-      <div class="col">レシピ</div>
+     <div class="row">
+      <div class="col">手順</div>
       <div class="col"><%= @recipe.step %></div>
      </div>
 
-   </div><!--col-->
-  </div><!--row-->
+   </div>
+  </div>
 
   <br>
 
   <div class="text-center">
     <%= link_to "編集する", edit_recipe_path(@recipe.id), class: 'btn btn-outline-secondary' %>
+    <%= link_to 'レシピを削除', @recipe, method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-outline-danger" %>
+    <%= link_to "献立を作る", new_daily_menu_path, class: 'btn btn-outline-info' %>
   </div>
 
-</div><!--container-->
+</div>
