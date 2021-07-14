@@ -1,8 +1,23 @@
+<%= form_with model: @daily_menu do |f| %>
+  <%= render 'layouts/errors', obj: f.object %>
+<% end %>
+
+
 <div class="container">
-
-
 <h4>献立作成ページ</h4>
-  
+<%= form_with model: @daily_menu, local:true do |f| %>
+  <div>日付：<%= f.date_field :setting_date %></div>
+
+  <div>いつ：<%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></div>
+<% end %>
+
+  <div>レシピ：
+ 　　　　<%= form_tag("/search", method: "get") do %>
+  　　　　<%= label_tag(:q, "Search for:") %>
+  　　　　<%= text_field_tag(:q) %>
+  　　　　<%= submit_tag("Search") %>
+　　　<% end %>
+  </div>
 
 
 </div>
