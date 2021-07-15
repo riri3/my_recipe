@@ -18,8 +18,11 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
-    @genres = Genre.all
-    @ingredients = Ingredient.all
+    @genre1 = Recipe.where(genre_id: 1 )  # 和食
+    @genre2 = Recipe.where(genre_id: 2 )  # 洋食
+    @genre3 = Recipe.where(genre_id: 3 )  # 中華
+    @genre4 = Recipe.where(genre_id: 4 )  # アジア/エスニック
+    @genre5 = Recipe.where(genre_id: 5 )  # その他
   end
 
   def show

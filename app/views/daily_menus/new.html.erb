@@ -4,20 +4,57 @@
 
 
 <div class="container">
-<h4>献立作成ページ</h4>
-<%= form_with model: @daily_menu, local:true do |f| %>
-  <div>日付：<%= f.date_field :setting_date %></div>
+ <div class="row">
+  <div class="col">
+    <h4>献立作成ページ</h4>
+    <%= form_with model: @daily_menu do |f| %>
+     <label for="menu">日付</label>
+     <p><%= f.date_field :setting_date %></p>
+     <label for="meal_time">朝/昼/夜</label>
+     <p><%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></p>
+     <label for="recipe">レシピ</label>
+     <p><%= f.collection_select :recipe_id, Recipe.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
 
-  <div>いつ：<%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></div>
-<% end %>
+ <!--<p><= f.datetime_select :start_time%></p>-->
+ <!-- <div>日付：<= f.date_field :setting_date %></div>-->
 
-  <div>レシピ：
- 　　　　<%= form_tag("/search", method: "get") do %>
-  　　　　<%= label_tag(:q, "Search for:") %>
-  　　　　<%= text_field_tag(:q) %>
-  　　　　<%= submit_tag("Search") %>
-　　　<% end %>
+ <!-- <div>朝/昼/夜：<= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></div>-->
+
+
+ <!--  <div>レシピ：<= f.collection_select :recipe_id, Recipe.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %>-->
+
+
+　  <!--<div class="search-form">-->
+   <!--   <= form_with url: @search_path, method: :get, local: true do |f| %>-->
+   <!--     <= f.text_field :content %>-->
+   <!--     <= f.select :model, options_for_select({ "Recipe" => "recipe", "Ingredient" => "ingredient" }) %>-->
+   <!--     <= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>-->
+   <!--     <= f.submit '検索' %>-->
+   <!--   < end %>-->
+   <!--  </div>-->
+
+      <%= f.submit "登録する", class: 'btn btn-outline-secondary' %>
+
+
+     <% end %>
+   </div>
   </div>
+
+  <div class="row">
+      <div class="col">
+          <%= month_calendar daily_menus: @daily_menu.recipes do |setting_date, recipes| %>
+		  <%= setting_date.day %>
+		  <%# recipes.each do |recipe| %>
+		   <div>
+		    <%#= link_to recipe.name, edit_daily_menu_path(daily_menu) %>
+		   </div>
+		  <%# end %>
+		<% end %>
+      </div>
+  </div>
+
+
+
 
 
 </div>

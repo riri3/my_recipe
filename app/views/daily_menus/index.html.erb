@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+   <img src="assets/logo.png" class="d-block mx-auto" alt=""></img>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <table class="table table-hover">
+
+        <tbody>
+          <h4>今日の献立</h4>
+          <% @morning.each do |morning| %>
+
+          <tr>
+            <th>朝</th>
+             <td><%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+                <%= morning.name %>
+             </td>
+          </tr>
+          <% end %>
+
+          <tr>
+            <th>昼</th>
+             <td>
+              <%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+            　<%#= daily_menu.recipe.name %>
+             </td>
+          </tr>
+
+          <tr>
+            <th>夜</th>
+            <td>
+              <%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+              <%#= @daily_menu.recipe.name %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>memo</th>
+            <td><%#= @daily_menu.memo %></td>
+          </tr>
+
+
+        </tbody>
+
+      </table>
+   </div>
+  </div>
+</div>

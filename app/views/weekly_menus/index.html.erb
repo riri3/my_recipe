@@ -22,14 +22,14 @@
          <tr>
            <% @daily_menus.each do |daily_menu| %>
            <td>日付</td>
-           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>朝食</td>
-           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>昼食</td>
-           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>夕食</td>
+           <td><%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>朝食</td>
+           <td><%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>昼食</td>
+           <td><%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>夕食</td>
            <td>めも</td>
            <% end %>
          </tr>
         </tbody>
-        
+
       </table>
    </div>
   </div>

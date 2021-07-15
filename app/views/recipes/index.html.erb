@@ -1,12 +1,79 @@
 <div class="container">
+　<div class="row">
+    <div class="col-md-10">
 
-   <%= @recipes.each do |recipe| %>
-
-    <%= link_to recipe_path(recipe) do %>
-       <%= attachment_image_tag recipe, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
-       <%= recipe.name %>
+  <div class="category bg-secondary text-light">和食</div>
+    <% @genre1.each do |genre| %>
+     <div class="mb-20">
+      <%= link_to recipe_path(genre) do %>
+        <%= attachment_image_tag genre, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+        <%= genre.name %>
+      <% end %>
+     </div>
     <% end %>
 
-   <% end %>
+  <div class="category bg-secondary text-light">洋食</div>
+    <% @genre2.each do |genre| %>
+     <div class="mb-20">
+      <%= link_to recipe_path(genre) do %>
+        <%= attachment_image_tag genre, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+        <%= genre.name %>
+      <% end %>
+     </div>
+    <% end %>
 
- </div>
+  <div class="category bg-secondary text-light">中華</div>
+    <% @genre3.each do |genre| %>
+     <div class="mb-20">
+      <%= link_to recipe_path(genre) do %>
+        <%= attachment_image_tag genre, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+        <%= genre.name %>
+      <% end %>
+     </div>
+    <% end %>
+
+　<div class="category bg-secondary text-light">アジア/エスニック</div>
+    <% @genre4.each do |genre| %>
+     <div class="mb-20">
+      <%= link_to recipe_path(genre) do %>
+        <%= attachment_image_tag genre, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+        <%= genre.name %>
+      <% end %>
+     </div>
+    <% end %>
+
+  <div class="category bg-secondary text-light">その他</div>
+    <% @genre5.each do |genre| %>
+     <div class="mb-20">
+      <%= link_to recipe_path(genre) do %>
+        <%= attachment_image_tag genre, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+        <%= genre.name %>
+      <% end %>
+     </div>
+    <% end %>
+
+   <div class="category bg-secondary text-light">すべて</div>
+   <% @recipes.each do |recipe| %>
+     <div class="mb-20">
+      <%= link_to recipe_path(recipe) do %>
+        <%= attachment_image_tag recipe, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
+        <%= recipe.name %>
+      <% end %>
+     </div>
+    <% end %>
+
+</div>
+</div>
+</div>
+
+  <!-- <div class="category bg-success">住居系</div>-->
+  <!--< @gear1.each do |gear| %>-->
+  <!--  <div class="gear-index-item mb-20">-->
+  <!--    < if gear.image.attached? %>-->
+  <!--      <= image_tag gear.image, class: "index-img" %>-->
+  <!--    < else %>-->
+  <!--      <img class="index-img" src="<%= "/images/default_gear.jpg" %>" alt="Index image cap">-->
+  <!--    < end %>-->
+  <!--    <= link_to(gear.name, "/gears/#{gear.id}") %>-->
+  <!--  </div>-->
+  <!--< end %>-->

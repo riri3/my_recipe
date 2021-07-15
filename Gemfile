@@ -59,7 +59,7 @@ gem 'enum_help'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
-gem 'fullcalendar-rails'
+gem "simple_calendar", "~> 2.0"
 gem 'momentjs-rails'
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
