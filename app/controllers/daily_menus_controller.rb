@@ -1,15 +1,23 @@
 class DailyMenusController < ApplicationController
-  def new
-    @daily_menu = DailyMenu.new
+
+  def index
+    # now = Time.current
+    # @daily_menus = DailyMenu.where(setting_date: (now.beginning_of_day)..(now.end_of_day))
+     @daily_menu = current_user.daily_menus.new
+    # @recipe = Recipe.where(recipe_id :@daily_menu.id)
+    # @morning = @daily_menus.where(meal_time_id: 1)  # 朝食
+    # @lunch = @daily_menus.where(meal_time_id: 2)    # 昼食
+    # @dinnder = @daily_menus.where(meal_time_id: 3)  # 夕食
   end
+
 
   def create
     @daily_menu= current_user.daily_menus.new(daily_menu_params)
     # @daily_menu = DailyMenu.new(daily_menu_params)
-    if daily_menu.user_id = current_user.id
+    if @daily_menu.user_id = current_user.id
       @daily_menu.save
       flash[:notice] = "レシピを登録しました！"
-      redirect_to daily_menu_path(@daily_menu.id)
+      redirect_to daily_menus_path
     else
       render :new
     end
@@ -25,13 +33,6 @@ class DailyMenusController < ApplicationController
     #@ingredients = Ingredient.where(id: @ingredients_ids)               # 材料テーブルからそのレシピの材料idをもつ材料をpick up
   end
 
-  def index
-     now = Time.current
-     @daily_menus = DailyMenu.where(setting_date: (now.beginning_of_day)..(now.end_of_day))
-     @morning = @daily_menus.where(meal_time_id: 1)  # 朝食
-     @lunch = @daily_menus.where(meal_time_id: 2)    # 昼食
-     @dinnder = @daily_menus.where(meal_time_id: 3)  # 夕食
-  end
 
   def edit
     @daily_menu = DailyMenu.find(params[:id])

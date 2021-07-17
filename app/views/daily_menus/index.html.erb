@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-   <img src="assets/logo.png" class="d-block mx-auto" alt=""></img>
+   <img src="<%= asset_path("logo.png") %>" class="d-block mx-auto" alt=""></img>
   </div>
 
 
@@ -8,41 +8,26 @@
     <div class="col-md-10 mx-auto">
       <table class="table table-hover">
 
-        <tbody>
-          <h4>今日の献立</h4>
-          <% @morning.each do |morning| %>
+        <h4>献立作成ページ</h4>
+         <%= form_with model: @daily_menu do |f| %>
+           <label for="menu">日付</label>
+           <p><%= f.date_field :setting_date %></p>
 
-          <tr>
-            <th>朝</th>
-             <td><%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
-                <%= morning.name %>
-             </td>
-          </tr>
-          <% end %>
+           <label for="meal_time">朝/昼/夜</label>
+           <p><%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></p>
 
-          <tr>
-            <th>昼</th>
-             <td>
-              <%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
-            　<%#= daily_menu.recipe.name %>
-             </td>
-          </tr>
+           <label for="recipe">レシピ</label>
+           <p><%= f.collection_select :recipe_id, Recipe.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
 
-          <tr>
-            <th>夜</th>
-            <td>
-              <%#= attachment_image_tag daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
-              <%#= @daily_menu.recipe.name %>
-            </td>
-          </tr>
-
-          <tr>
-            <th>memo</th>
-            <td><%#= @daily_menu.memo %></td>
-          </tr>
+           <p><= f.datetime_select :start_time%></p>
 
 
-        </tbody>
+               <%= f.submit "登録する", class: 'btn btn-outline-secondary' %>
+
+
+     <%# end %>
+  <!-- </div>-->
+  <!--</div>-->
 
       </table>
    </div>

@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h4><%= @daily_menu.setting_date>の献立</h4>
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+      <%#= @daily_menu.setting_date>の献立</h4>
 
       <table class="table table-hover">
         <thead>
@@ -17,17 +17,17 @@
         <tbody>
          <tr>
            <% @daily_menus.each do |daily_menu| %>
-           <td>日付</td>
-           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>朝食</td>
-           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>昼食</td>
-           <td><%= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>夕食</td>
-           <td>めも</td>
-           <% end %>
-         </tr>
-        </tbody>
+           <!--<td>日付</td>-->
+           <!--<td><%#= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>朝食</td>-->
+           <!--<td><%#= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>昼食</td>-->
+           <!--<td><%#= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>夕食</td>-->
+           <!--<td>めも</td>-->
+           <%# end %>
+ <!--        </tr>-->
+ <!--       </tbody>-->
 
-      </table>
-    </div>
-  </div>
- </div>
+ <!--     </table>-->
+ <!--   </div>-->
+ <!-- </div>-->
+ <!--</div>-->
 

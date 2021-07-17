@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :recipes, dependent: :destroy
   has_many :daily_menus, dependent: :destroy
+  has_many :contacts, dependent: :destroy
 
   validates :name,  presence: true
   validates :email, presence: true, uniqueness: true

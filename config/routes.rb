@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
   resources :recipes
-  resources :daily_menus, only: [:new, :index, :create, :show, :edit, :update, :destroy]
+  resources :daily_menus, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :weekly_menus, only: [:index]
   resources :shopping_lists, only:[:index, :create, :edit, :update, :destroy]
   resources :contacts, only:[:new, :create]
