@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="row">
-   <img src="<%= asset_path("logo.png") %>" class="d-block mx-auto" alt=""></img>
-  </div>
+  <%= form_with model: @daily_menu do |f| %>
+    <%= render 'layouts/errors', obj: f.object %>
+  <% end %>
+
 
 
   <div class="row">
@@ -10,8 +11,8 @@
 
         <h4>献立作成ページ</h4>
          <%= form_with model: @daily_menu do |f| %>
-           <label for="menu">日付</label>
-           <p><%= f.date_field :setting_date %></p>
+           <label for="date">日付</label>
+           <p><%= f.date_field :start_time %></p>
 
            <label for="meal_time">朝/昼/夜</label>
            <p><%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></p>
@@ -19,16 +20,21 @@
            <label for="recipe">レシピ</label>
            <p><%= f.collection_select :recipe_id, Recipe.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
 
-           <p><= f.datetime_select :start_time%></p>
-
-
                <%= f.submit "登録する", class: 'btn btn-outline-secondary' %>
 
+        <% end %>
 
-     <%# end %>
-  <!-- </div>-->
-  <!--</div>-->
-
+         <div>
+          <%= month_calendar(events: @daily_menus) do |date, daily_menus| %>
+            <%= date.day %>
+            <ul style="list-style:none;">
+            <% daily_menus.each do |daily_menu| %>
+               <li><%= daily_menu.meal_time.name %></li>
+               <li><%= link_to daily_menu.recipe.name, recipe_path(daily_menu.recipe.id) %></li>
+　　　　　  <% end %>
+　　　　　  </ul>
+          <% end %>
+         </div>
       </table>
    </div>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_063018) do
+ActiveRecord::Schema.define(version: 2021_07_18_065653) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_063018) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "setting_date", "~> 2.0"
+    t.datetime "start_time"
     t.integer "meal_time_id"
   end
 

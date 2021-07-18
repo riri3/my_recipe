@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
+  before_action :baria_recipes, only: [:update, :edit]
 
   def new
     @recipe = Recipe.new
@@ -17,28 +18,29 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all
-    @genre1 = Recipe.where(genre_id: 1 )  # 和食
-    @genre2 = Recipe.where(genre_id: 2 )  # 洋食
-    @genre3 = Recipe.where(genre_id: 3 )  # 中華
-    @genre4 = Recipe.where(genre_id: 4 )  # アジア/エスニック
-    @genre5 = Recipe.where(genre_id: 5 )  # その他
+    # @recipe = Recipe.all
+    @recipes = current_user.recipes.all
+    @genre1 = current_user.recipes.where(genre_id: 1 )  # 和食
+    @genre2 = current_user.recipes.where(genre_id: 2 )  # 洋食
+    @genre3 = current_user.recipes.where(genre_id: 3 )  # 中華
+    @genre4 = current_user.recipes.where(genre_id: 4 )  # アジア/エスニック
+    @genre5 = current_user.recipes.where(genre_id: 5 )  # その他
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     @ingredients_ids = @recipe.recipe_ingredients.pluck(:ingredient_id) # 中間テーブルからレシピの材料idをpick up
     @ingredients = Ingredient.where(id: @ingredients_ids)               # 材料テーブルからそのレシピの材料idをもつ材料をpick up
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     @genres = Genre.all
     @recipe.recipe_ingredients.build
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     if @recipe.update(recipe_params)
       flash[:notice] = "登録情報を変更しました!"
       redirect_to recipe_path(@recipe.id)
@@ -57,6 +59,13 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:genre_id, :name, :step, :image,
                                    ingredients_attributes: [:name, :unit, :quantity])
+  end
+
+  def baria_recipes
+   @user = current_user
+    if recipe.user != current_user
+           redirect_to _path
+    end
   end
 
 end
