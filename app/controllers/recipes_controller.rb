@@ -1,9 +1,8 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
-  before_action :baria_recipes, only: [:update, :edit]
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.new
     @recipe.ingredients.build
   end
 
@@ -18,7 +17,6 @@ class RecipesController < ApplicationController
   end
 
   def index
-    # @recipe = Recipe.all
     @recipes = current_user.recipes.all
     @genre1 = current_user.recipes.where(genre_id: 1 )  # 和食
     @genre2 = current_user.recipes.where(genre_id: 2 )  # 洋食
@@ -50,7 +48,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    recipe = Recipe.find(params[:id])
+    recipe = current_user.recipes.find(params[:id])
     recipe.destroy
     redirect_to recipes_path
   end
@@ -60,12 +58,4 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:genre_id, :name, :step, :image,
                                    ingredients_attributes: [:name, :unit, :quantity])
   end
-
-  def baria_recipes
-   @user = current_user
-    if recipe.user != current_user
-           redirect_to _path
-    end
-  end
-
 end

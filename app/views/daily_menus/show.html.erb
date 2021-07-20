@@ -1,33 +1,28 @@
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col">-->
-      <%#= @daily_menu.setting_date>の献立</h4>
-
+<div class="container">
+   <div class="row">
+    <div class="col-md-10 mx-auto">
       <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>日付・曜日</th>
-            <th>朝</th>
-            <th>昼</th>
-            <th>夜</th>
-            <th>memo<th>
-          </tr>
-        </thead>
 
-        <tbody>
-         <tr>
-           <% @daily_menus.each do |daily_menu| %>
-           <!--<td>日付</td>-->
-           <!--<td><%#= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>朝食</td>-->
-           <!--<td><%#= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>昼食</td>-->
-           <!--<td><%#= attachment_image_tage daily_menu, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>夕食</td>-->
-           <!--<td>めも</td>-->
-           <%# end %>
- <!--        </tr>-->
- <!--       </tbody>-->
+          <div class="row">
+    <div class="col-md-10 mx-auto">
+      <table class="table table-hover">
 
- <!--     </table>-->
- <!--   </div>-->
- <!-- </div>-->
- <!--</div>-->
+        <h4>献立編集ページ</h4>
+         <%= form_with model: @daily_menu do |f| %>
+           <label for="date">日付</label>
+           <p><%= f.date_field :start_time %></p>
 
+           <label for="meal_time">朝/昼/夜</label>
+           <p><%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></p>
+
+           <label for="recipe">レシピ</label>
+           <p><%= f.collection_select :recipe_id, Recipe.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
+
+               <%= f.submit "変更を", class: 'btn btn-outline-secondary' %>
+               <%= link_to "Back", daily_menus_path, class: 'btn btn-outline-secondary' %>
+
+        <% end %>
+      </table>
+   </div>
+  </div>
+</div>

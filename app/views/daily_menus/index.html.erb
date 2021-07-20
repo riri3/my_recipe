@@ -3,8 +3,6 @@
     <%= render 'layouts/errors', obj: f.object %>
   <% end %>
 
-
-
   <div class="row">
     <div class="col-md-10 mx-auto">
       <table class="table table-hover">
@@ -30,7 +28,7 @@
             <ul style="list-style:none;">
             <% daily_menus.each do |daily_menu| %>
                <li><%= daily_menu.meal_time.name %></li>
-               <li><%= link_to daily_menu.recipe.name, recipe_path(daily_menu.recipe.id) %></li>
+               <li><%= link_to daily_menu.recipe.name, edit_daily_menu_path(daily_menu.recipe.id) %></li>
 　　　　　  <% end %>
 　　　　　  </ul>
           <% end %>
