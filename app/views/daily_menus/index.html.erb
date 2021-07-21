@@ -21,9 +21,21 @@
                <%= f.submit "登録する", class: 'btn btn-outline-secondary' %>
 
         <% end %>
+         
+         <div class="switch-calendar-wrap">
+           <p>switch calendar</p>
+           <div class="calendars">
+             <%= radio_button_tag "calendar", "month", checked: "true" %>
+             <%= label "calendar", "month" %>
+             <%= radio_button_tag "calendar", "week" %>
+             <%= label "calendar", "week" %>
+           </div>
+         </div>
 
-         <div>
-          <%= month_calendar(events: @daily_menus) do |date, daily_menus| %>
+
+　　　　<div class="calendar">
+         <div id="month_calendar"><!--デフォルト表示-->
+          <%= month_calendar events:@daily_menus do |date, daily_menus| %>
             <%= date.day %>
             <ul style="list-style:none;">
             <% daily_menus.each do |daily_menu| %>
@@ -33,6 +45,20 @@
 　　　　　  </ul>
           <% end %>
          </div>
+
+         <div id="week_calendar">
+          <%= week_calendar events:@daily_menus do |date, daily_menus| %>
+           <%= date.day %>
+           <ul style="list-style:none;">
+            <% daily_menus.each do |daily_menu| %>
+             <li><%= daily_menu.meal_time.name %></li>
+             <li><%= link_to daily_menu.recipe.name, edit_daily_menu_path(daily_menu.recipe.id) %></li>
+            <% end %>
+           </ul>
+          <% end %>
+         </div>
+        </div>
+
       </table>
    </div>
   </div>

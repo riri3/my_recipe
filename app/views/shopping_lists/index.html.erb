@@ -6,18 +6,18 @@
 
         <%# @daily_menus.each do |daily_menu| %>
 
-       
+
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id=daily_menu>
           <label class="form-check-label" for=daily_menu><= daily_menu.recipe.name %></label>
         </div>
-        
+
          <%# end %>
 
         <%= form_with model: @daily_menu do |f| %>
         　<h6>memo</h6>
         　<%= f.text_area :memo, placeholder: "メモ", size: "30x5", class: "form-control" %>
-　
+
           <%= f.submit %>
 　　　　<% end %>
 
