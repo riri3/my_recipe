@@ -16,20 +16,19 @@
            <p><%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></p>
 
            <label for="recipe">レシピ</label>
-           <p><%= f.collection_select :recipe_id, Recipe.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
+           <p><%= f.collection_select :recipe_id, current_user.recipes.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
 
                <%= f.submit "登録する", class: 'btn btn-outline-secondary' %>
 
         <% end %>
-         
+
          <div class="switch-calendar-wrap">
-           <p>switch calendar</p>
-           <div class="calendars">
-             <%= radio_button_tag "calendar", "month", checked: "true" %>
-             <%= label "calendar", "month" %>
-             <%= radio_button_tag "calendar", "week" %>
-             <%= label "calendar", "week" %>
-           </div>
+           <p>switch calendar：
+               <%= radio_button_tag "calendar", "month", checked: "true" %>
+               <%= label "calendar", "month" %>
+               <%= radio_button_tag "calendar", "week" %>
+               <%= label "calendar", "week" %>
+           </p>
          </div>
 
 
@@ -49,6 +48,7 @@
          <div id="week_calendar">
           <%= week_calendar events:@daily_menus do |date, daily_menus| %>
            <%= date.day %>
+
            <ul style="list-style:none;">
             <% daily_menus.each do |daily_menu| %>
              <li><%= daily_menu.meal_time.name %></li>
