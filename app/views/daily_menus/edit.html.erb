@@ -19,9 +19,10 @@
     　　　　      <p><%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></p>
 
     　　　　      <label for="recipe">レシピ</label>
-    　　　　      <p><%= f.collection_select :recipe_id, Recipe.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
+    　　　　      <p><%= f.collection_select :recipe_id, current_user.recipes.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
 
     　　　　          <%= f.submit "変更する", class: 'btn btn-outline-secondary' %>
+    　　　　          <%= link_to '献立を削除', @daily_menu, method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-outline-danger" %>
     　　　　          <%= link_to "Back", daily_menus_path, class: 'btn btn-outline-secondary' %>
     　　　 　   <% end %>
           </div>
