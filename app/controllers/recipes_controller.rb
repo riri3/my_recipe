@@ -27,8 +27,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = current_user.recipes.find(params[:id])
-    @ingredients_ids = @recipe.recipe_ingredients.pluck(:ingredient_id) # 中間テーブルからレシピの材料idをpick up
-    @ingredients = Ingredient.where(id: @ingredients_ids)               # 材料テーブルからそのレシピの材料idをもつ材料をpick up
+    @ingredients_ids = @recipe.recipe_ingredients.pluck(:ingredient_id) # 中間テーブルからレシピの材料idを取得
+    @ingredients = Ingredient.where(id: @ingredients_ids)               # 材料テーブルからそのレシピの材料idをもつ材料を取得
   end
 
   def edit
