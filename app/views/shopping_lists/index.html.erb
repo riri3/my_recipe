@@ -3,18 +3,24 @@
       <div class="col-md-10 mx-auto">
         <h4>shopping List</h4>
         <h6>今週１週間分の献立に必要なお買い物リストです。</h6>
-
-        <% @ingredients each do |ingredient| %>
-
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id=daily_menu>
-          <label class="form-check-label" for=daily_menu><= daily_menu.recipe.name %></label>
+        <div>
+          <%= form_tag( shopping_lists_path(current_user.id), :method => 'get' ) do %>
+            <%= check_box_tag 'test', '1week', false %><label>1週間分</label>
+            <%= hidden_field_tag 'from', @from %>
+            <%= hidden_field_tag 'to', @to %>
+            <%= submit_tag 'test' %>
+          <% end %>
         </div>
 
-         <%# end %>
+        <% @ingredients.each do |ingredient| %>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id=shopping_list>
+          <label class="form-check-label" for=daily_menu><%= ingredient.name %><%= ingredient.quantity %><%= ingredient.unit %></label>
 
-        <%= form_with model: @daily_menu do |f| %>
+        </div>
+        <% end %>
+
+        <%= form_with model: @memo do |f| %>
         　<h6>memo</h6>
         　<%= f.text_area :memo, placeholder: "メモ", size: "30x5", class: "form-control" %>
 
