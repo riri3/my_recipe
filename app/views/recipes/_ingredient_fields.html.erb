@@ -1,4 +1,4 @@
-<div class="nested-fields form-inline">
+<ul class="nested-fields form-inline" style="list-style-type:none">
 
       <li>
         <%= f.label :"材料名" %>
@@ -15,6 +15,5 @@
         <%= f.number_field :quantity, placeholder: "1.5", min: '0.0', step: '0.1', size: "5", class: "form-control" %>
       </li>
 
-  <%#= link_to_remove_association "削除", f, :ingredients %>
-
-</div>
+      　<%= link_to_remove_association "削除", f %>
+</ul>

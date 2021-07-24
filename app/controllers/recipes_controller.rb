@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
   def edit
     @recipe = current_user.recipes.find(params[:id])
     @genres = Genre.all
-    @recipe.recipe_ingredients.build
+    #@recipe.recipe_ingredients.build
   end
 
   def update
@@ -56,6 +56,6 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(:genre_id, :name, :step, :image,
-                                   ingredients_attributes: [:name, :unit, :quantity])
+                                   ingredients_attributes: [:id, :name, :unit, :quantity, :_destroy])
   end
 end

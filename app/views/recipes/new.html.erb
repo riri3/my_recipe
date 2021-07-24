@@ -29,16 +29,17 @@
       </tr>
 
       <tr>
-       <div id="ingredients" class="form-group">
+       <div class="form-group">
         <th>材料</th>
          <td>
-           <ul class="list-inline">
+           <div class="list-inline" id="ingredients">
              <%= f.fields_for :ingredients do |builder| %>
-               <%= render 'ingredient_fields', f: builder %>
-                 <div id="links">
-               <%= link_to_add_association "+", f, :ingredients %>
-
+              <%= render 'ingredient_fields', f: builder %>
              <% end %>
+           </div>
+           <div id="links">
+          　 <%= link_to_add_association "+", f, :ingredients %>
+　  　　 　</div>
          </td>
          <br/>
        </div>
