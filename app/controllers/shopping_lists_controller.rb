@@ -7,8 +7,9 @@ class ShoppingListsController < ApplicationController
   #     @to = params[:to].to_time.since(7.days)
   #   end
   #   else
-      @from = Date.today.beginning_of_week
-      @to = Date.today.end_of_week
+      now = Time.current
+      @from = now.beginning_of_week
+      @to = now.end_of_week
     # end
     # binding.irb
    @this_week = current_user.daily_menus.where(start_time: @from...@to) #今週の週間献立すべてを取得
