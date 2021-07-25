@@ -20,7 +20,7 @@
        <li><%= link_to ' Making menu |', daily_menus_path %></li>
        <li><%= link_to ' My page  |', user_path(current_user.id) %></li>
        <li><%= link_to ' Shopping List  |', shopping_lists_path(current_user.id) %></li>
-       <li><%= link_to ' Contact  |', new_contact_path %></li>
+       <li><%= link_to ' Contact  |', contacts_path %></li>
        <li><%= link_to " Log out", destroy_user_session_path, method: :delete %></li>
       <% else %>
        <li><%= link_to ' How to use  |', how_to_use_path %></li>
