@@ -1,10 +1,30 @@
-<h4>お問い合わせフォーム</h4>
-
 <%= form_with model: @contact do |f| %>
-  名前：<%= f.text_field :name, autoforcus: true, placeholder: "たなか たろう", size: "30", class: "form-control" %>
-  メールアドレス：<%= f.email_field :email %>
-  件名：<%= f.text_field :subject %>
-  内容：<%= f.text_area :message %>
-
-  <%= f.submit "確認する", class: 'btn btn-outline-secondary' %>
+  <%= render 'layouts/errors', obj: f.object %>
 <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h4>お問い合わせフォーム</h4>
+
+       <%= form_with model: @contact do |f| %>
+        <%= f.label :お名前 %>
+        <%= f.text_field :name, autoforcus: true, placeholder: "たなか たろう", size: "30", class: "form-control" %>
+
+        <%= f.label :メールアドレス %>
+        <%= f.email_field :email, placeholder: "abc@abc.com", class: "form-control" %>
+
+        <%= f.label :件名 %>
+        <%= f.text_field :subject, placeholder: "レシピの登録について", class: "form-control" %>
+
+        <%= f.label :お問い合わせ内容 %>
+        <%= f.text_area :message, placeholder: "お問い合わせ内容", class: "form-control" %>
+
+　　　　<div class="text-center">
+       　 <%= f.submit "確認する", class: 'btn btn-outline-secondary' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
