@@ -46,6 +46,6 @@ class DailyMenusController < ApplicationController
 
   private
   def daily_menu_params
-    params.require(:daily_menu).permit( :user_id, :recipe_id, :start_time, :meal_time_id, :memo)
+    params.require(:daily_menu).permit( :user_id, :recipe_id, :weekly_menu_id, :start_time, :meal_time_id, :memo)
   end
 end
