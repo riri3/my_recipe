@@ -7,21 +7,29 @@
     <div class="col-md-10">
       <h4>お問い合わせフォーム</h4>
 
-       <%= form_with model: @contact do |f| %>
+       <%= form_with model: @contact, url: contacts_confirm_path, local: true do |f| %>
         <%= f.label :お名前 %>
         <%= f.text_field :name, autoforcus: true, placeholder: "たなか たろう", size: "30", class: "form-control" %>
+
+        <br />
 
         <%= f.label :メールアドレス %>
         <%= f.email_field :email, placeholder: "abc@abc.com", class: "form-control" %>
 
+        <br />
+
         <%= f.label :件名 %>
         <%= f.text_field :subject, placeholder: "レシピの登録について", class: "form-control" %>
+
+        <br />
 
         <%= f.label :お問い合わせ内容 %>
         <%= f.text_area :message, placeholder: "お問い合わせ内容", class: "form-control" %>
 
-　　　　<div class="text-center">
-       　 <%= f.submit "確認する", class: 'btn btn-outline-secondary' %>
+        <br />
+
+        <div class="text-center">
+         <%= f.submit "確認する", class: 'btn btn-outline-secondary' %>
         </div>
       <% end %>
 

@@ -30,7 +30,7 @@
   <%= f.hidden_field :message %>
   <div><%= f.submit '送信' %></div>
 <% end %>
-<%= form_for @contact, url: back_path do |f| %>
+<%= form_for @contact, url: contacts_back_path do |f| %>
   <%= f.hidden_field :name %>
   <%= f.hidden_field :email %>
   <%= f.hidden_field :subject %>
