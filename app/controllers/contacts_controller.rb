@@ -6,13 +6,15 @@ class ContactsController < ApplicationController
   def confirm
     @contact = current_user.contacts.new(contact_params)
     if @contact.invalid?
+      render :confirm
+    else
       render :index
     end
   end
 
   def back
-    @contact = Contact.new(contact_params)
-    render :new
+    @contact = current_user.contacts.new(contact_params)
+    render :index
   end
 
   def create
