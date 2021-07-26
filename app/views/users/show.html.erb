@@ -1,24 +1,22 @@
 <div class="container">
+ <div class="row">
+  <div class="col-mx-8">
+   <h4>登録情報</h4>
 
-　<div class="row">
-　  <div class="mx-auto">
-　   <h4>登録情報</h4>
-　    <table>
-　   　 <tr>
-         <th>名前</th>
-         <td><%= @user.name %></td>
-        </tr>
+   <br />
 
-        <tr>
-         <th>メールアドレス</th>
-         <td><%= @user.email %></td>
-        </tr>
-　  　</table>
-
-      <br>
-
-　  　<%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-outline-secondary" %>
-
+    <table>
+      <tr>
+       <th>名前</th>
+       <td><%= @user.name %></td>
+      </tr>
+      <tr>
+       <th>メールアドレス</th>
+       <td><%= @user.email %></td>
+      </tr>
+    </table>
+    <br>
+   <%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-outline-secondary" %>
   </div>
  </div>
 </div>

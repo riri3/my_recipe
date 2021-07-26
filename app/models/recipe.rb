@@ -11,8 +11,7 @@ class Recipe < ApplicationRecord
 
   has_many :daily_menus, dependent: :destroy
 
-
-
+  validates :name, presence: true
 
   attachment :image, destroy: false
 
