@@ -52,7 +52,8 @@ My recipeは、世界にひとつ、自分だけのレシピを集めた献立�
 
 ## 設計書
 - 機能一覧
-<img width="437" alt="機能一覧" src="https://user-images.githubusercontent.com/81369773/127388083-10ab3e56-a372-49c4-bb3e-77ec1aac9efd.png">
+<img width="675" alt="機能一覧" src="https://user-images.githubusercontent.com/81369773/127392123-e4920962-29b9-4178-8c12-4e0c70255293.png">
+
 
 - ER図
 
