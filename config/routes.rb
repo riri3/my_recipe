@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :daily_menus, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :weekly_menus, only: [:index]
-  resources :shopping_lists, only:[:index, :create, :edit, :update, :destroy]
+  resources :shopping_lists, only:[:index, :create, :edit, :update, :destroy, :show]
   post 'contacts/confirm' => 'contacts#confirm'
   post 'contacts/back', to: 'contacts#back'
   get 'thanx' => 'contacts#thanx'
