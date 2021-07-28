@@ -8,9 +8,8 @@ class DailyMenusController < ApplicationController
 
   def create
     @daily_menu = current_user.daily_menus.new(daily_menu_params)
-    if @daily_menu.user_id == current_user.id
-      @daily_menu.save
-      flash[:notice] = 'レシピを登録しました！'
+    if @daily_menu.save
+      flash[:notice] = '献立に登録しました！'
       redirect_to daily_menus_path
     else
       flash.now[:alert] = '登録内容が正しくありません'
@@ -20,7 +19,9 @@ class DailyMenusController < ApplicationController
 
   def show
     now = Time.current
-    @daily_menus = current_user.daily_menus.where(start_time: (now.beginning_of_day)..(now.end_of_day))
+    @from = now.beginning_of_day
+    @to = now.end_of_day
+    @daily_menus = current_user.daily_menus.where(start_time: @from...@to)
   end
 
   def edit
@@ -46,6 +47,7 @@ class DailyMenusController < ApplicationController
   private
 
   def daily_menu_params
-    params.require(:daily_menu).permit(:user_id, :recipe_id, :weekly_menu_id, :start_time, :meal_time_id, :memo)
+    params.require(:daily_menu).
+      permit(:user_id, :recipe_id, :weekly_menu_id, :start_time, :meal_time_id, :memo)
   end
 end

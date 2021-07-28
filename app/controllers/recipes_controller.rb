@@ -54,6 +54,7 @@ class RecipesController < ApplicationController
   def destroy
     recipe = current_user.recipes.find(params[:id])
     recipe.destroy
+    flash[:alert] = 'レシピを削除しました'
     redirect_to recipes_path
   end
 
@@ -61,6 +62,6 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:user_id, :genre_id, :name, :step, :image,
-                                   ingredients_attributes: %i[id name unit quantity _destroy])
+                                   ingredients_attributes: %i(id name unit quantity _destroy))
   end
 end

@@ -45,6 +45,6 @@
   <div class="text-center">
     <%= link_to "編集する", edit_recipe_path(@recipe.id), class: 'btn btn-outline-secondary' %>
     <%= link_to 'レシピを削除', @recipe, method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-outline-danger" %>
-    <%= link_to "献立を作る", daily_menus_path, class: 'btn btn-outline-info' %>
+    <%= link_to "献立を作る", daily_menus_path, data: {"turbolinks" => false}, class: 'btn btn-outline-info' %>
   </div>
 </div>
