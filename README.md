@@ -67,7 +67,8 @@ https://www.icloud.com/numbers/0P9p4sC-kTNE95ulhf_pCbjmQ
 
 - アプリケーション詳細設計書
   
-https://www.icloud.com/numbers/0BJ6QppZZ-11zoiBhhMYPlo8Q#My_recipe_application_design
+<img width="437" alt="詳細設計" src="https://user-images.githubusercontent.com/81369773/127392510-25fc73bf-6917-4c8f-b7e8-d382d1f5e5ab.png">
+
 
 
 ## チャレンジ要素一覧
