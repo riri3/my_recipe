@@ -15,7 +15,15 @@
   <body>
     <%= render 'layouts/header' %>
 
-    <%= yield %>
+    <div class="flash">
+     <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: key) %>
+     <% end %>
+    </div>
+
+     <%= yield %>
+
+    </div>
 
    <footer class='d-flex align-items-center justify-content-center'>
     <h6>Copyright ©2021 R.Kamijo | All rights reserved.</h6>
