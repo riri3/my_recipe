@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       flash[:notice] = "登録情報を更新しました！"
       redirect_to user_path
     else
+      flash.now[:alert] = "登録内容が正しくありません"
       render :edit
     end
   end  

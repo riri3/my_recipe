@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
       flash[:notice] = "新しいレシピを登録しました！"
       redirect_to recipe_path(@recipe.id)
     else
+      flash.now[:alert] = "登録内容が正しくありません"
       render :new
     end
   end
@@ -40,9 +41,10 @@ class RecipesController < ApplicationController
   def update
     @recipe = current_user.recipes.find(params[:id])
     if @recipe.update(recipe_params)
-      flash[:notice] = "登録情報を変更しました!"
+      flash[:notice] = "登録内容を更新しました!"
       redirect_to recipe_path(@recipe.id)
     else
+      flash.now[:alert] = "登録内容が正しくありません"
       render 'edit'
     end
   end

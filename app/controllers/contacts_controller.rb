@@ -23,6 +23,7 @@ class ContactsController < ApplicationController
       ContactMailer.send_mail(@contact).deliver_now
       redirect_to thanx_path
     else
+      flash.now[:alert] = "登録内容が正しくありません"
       render :index
     end
   end

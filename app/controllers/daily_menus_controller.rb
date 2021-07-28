@@ -13,6 +13,7 @@ class DailyMenusController < ApplicationController
       flash[:notice] = "レシピを登録しました！"
       redirect_to daily_menus_path
     else
+      flash.now[:alert] = "登録内容が正しくありません"
       render :new
     end
   end

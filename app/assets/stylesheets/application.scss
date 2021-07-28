@@ -38,3 +38,16 @@
   background-color: #D9D9D9;
   // color: white;
  }
+
+ .flash {
+  color: $white;
+  text-align: center;
+
+  .notice {
+    background-color: #61C1CD;
+  }
+
+  .alert {
+    background-color: #D4D818;
+  }
+}
