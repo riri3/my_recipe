@@ -52,12 +52,7 @@ My recipeは、世界にひとつ、自分だけのレシピを集めた献立�
 
 ## 設計書
 - 機能一覧
-<img width="749" alt="My recipe機能一覧" src="https://user-images.githubusercontent.com/81369773/124359648-d2690080-dc60-11eb-9f39-240fb1a0665b.png">
-
-
-- UI Flow
-<img width="1376" alt="ui flow" src="https://user-images.githubusercontent.com/81369773/125017121-79102f80-e0ad-11eb-8433-1fe499ea3e51.png">
-
+<img width="437" alt="機能一覧" src="https://user-images.githubusercontent.com/81369773/127388083-10ab3e56-a372-49c4-bb3e-77ec1aac9efd.png">
 
 - ER図
 
