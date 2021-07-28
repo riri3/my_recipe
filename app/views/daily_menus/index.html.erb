@@ -19,7 +19,6 @@
            <p><%= f.collection_select :recipe_id, current_user.recipes.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
 
                <%= f.submit "登録する", class: 'btn btn-outline-secondary' %>
-
         <% end %>
 
          <div class="switch-calendar-wrap">
