@@ -1,0 +1,2 @@
+$('#memo_<%= memo.id %>').html("<%= j(render 'shopping_lists/memo', memos: @memos, locals: {post: @post}) %>");
+$(".memo").val('');
