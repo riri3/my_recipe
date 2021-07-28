@@ -55,6 +55,7 @@ My recipeは、世界にひとつ、自分だけのレシピを集めた献立�
 <img width="675" alt="機能一覧" src="https://user-images.githubusercontent.com/81369773/127392123-e4920962-29b9-4178-8c12-4e0c70255293.png">
 
 
+
 - ER図
 
 ![ER図](https://user-images.githubusercontent.com/81369773/127383450-3436807c-5900-42a1-89ca-59500c71b46d.png)
@@ -68,7 +69,7 @@ https://www.icloud.com/numbers/0P9p4sC-kTNE95ulhf_pCbjmQ
 - アプリケーション詳細設計書
   
 <img width="437" alt="詳細設計" src="https://user-images.githubusercontent.com/81369773/127392510-25fc73bf-6917-4c8f-b7e8-d382d1f5e5ab.png">
-
+<img width="265" alt="gem" src="https://user-images.githubusercontent.com/81369773/127393224-97f2905e-ce9d-4728-aad8-e370b37c41cf.png">
 
 
 ## チャレンジ要素一覧
