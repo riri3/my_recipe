@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-md-10 mx-auto">
         <h4>shopping List</h4>
-        <h6>今週１週間分の献立に必要なお買い物リストです。</h6>
+        <h6>来週の献立に必要なお買い物リストです。</h6>
 
         <!--<div>-->
           <%#= form_tag( shopping_lists_path(current_user.id), :method => 'get' ) do %>
@@ -20,12 +20,20 @@
          </div>
         <% end %>
 
-        <%= form_with model: @memo do |f| %>
-        　<h6>memo</h6>
-        　<%= f.text_area :memo, placeholder: "メモ", size: "30x5", class: "form-control" %>
+        <br />
 
-          <%= f.submit %>
-　　　　<% end %>
+        <%= form_with model: @memo, local:true do |f| %>
+          <h6>memo</h6>
+          <%= f.text_area :memo, placeholder: "メモ", size: "30x5", class: "form-control" %>
+
+        <br />
+
+        <div class="text-center">
+          <%= f.submit "メモを登録する", class: 'btn btn-outline-secondary' %>
+          <%#= link_to "メモを編集する", edit_shopping_list_path(@memo.id), class: 'btn btn-outline-secondary' %>
+          </div>
+
+        <% end %>
 
 
 
