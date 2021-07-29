@@ -2,14 +2,14 @@
 
 ## サイト概要
 My recipeは、世界にひとつ、自分だけのレシピを集めた献立作成サイトです。
-このサイトひとつで、レシピの確認から1週間分の献立作りまで一貫して行うことができます。
+このサイトひとつで、レシピの確認から買い物で必要な材料一覧確認、献立作りまで一貫して行うことができます。
 
 
 【使い方】
-１.自分が作れる料理のレシピ（作りたいもののレシピでも可）や材料などを登録します。
-２.レシピ一覧の中から献立に組み込みたいレシピを選択肢、献立(最大１週間分)を直感的に作成できます。
+１.自分が作れる料理のレシピ（作りたいもののレシピでも可）や材料、手順などを登録します。
+２.レシピ一覧の中から献立に組み込みたいレシピを選択し、直感的に献立を作成できます。
 
-レシピ一覧ではキーワードやジャンルでレシピを検索することが可能です。
+レシピ一覧ではジャンルごとにレシピを確認することが可能です。
 また、材料一覧から、お買い物リストを確認することもできます。
 
 
@@ -46,22 +46,20 @@ My recipeは、世界にひとつ、自分だけのレシピを集めた献立�
 
 
 ### 主な利用シーン
-- １週間分の献立を考える時
+- 献立を考える時
 - レシピを参照したい時
 - 献立に必要な食材を買いに行く時
 
 ## 設計書
 - 機能一覧
-<img width="749" alt="My recipe機能一覧" src="https://user-images.githubusercontent.com/81369773/124359648-d2690080-dc60-11eb-9f39-240fb1a0665b.png">
+<img width="675" alt="機能一覧" src="https://user-images.githubusercontent.com/81369773/127392123-e4920962-29b9-4178-8c12-4e0c70255293.png">
 
-
-- UI Flow
-<img width="1376" alt="ui flow" src="https://user-images.githubusercontent.com/81369773/125017121-79102f80-e0ad-11eb-8433-1fe499ea3e51.png">
 
 
 - ER図
 
-![ER図](https://user-images.githubusercontent.com/81369773/125160441-d2648580-e1b7-11eb-9dfa-b1f6458f8488.png)
+![ER図](https://user-images.githubusercontent.com/81369773/127383450-3436807c-5900-42a1-89ca-59500c71b46d.png)
+
 
 - テーブル定義書
   
@@ -70,7 +68,8 @@ https://www.icloud.com/numbers/0P9p4sC-kTNE95ulhf_pCbjmQ
 
 - アプリケーション詳細設計書
   
-https://www.icloud.com/numbers/0BJ6QppZZ-11zoiBhhMYPlo8Q#My_recipe_application_design
+<img width="437" alt="詳細設計" src="https://user-images.githubusercontent.com/81369773/127392510-25fc73bf-6917-4c8f-b7e8-d382d1f5e5ab.png">
+<img width="265" alt="gem" src="https://user-images.githubusercontent.com/81369773/127393224-97f2905e-ce9d-4728-aad8-e370b37c41cf.png">
 
 
 ## チャレンジ要素一覧
@@ -84,5 +83,4 @@ https://docs.google.com/spreadsheets/d/1B2UUvImMW1hhfa6NOclQCB_xTi98W4ZMobh7ehn3
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- Canva
