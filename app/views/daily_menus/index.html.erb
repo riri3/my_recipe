@@ -8,7 +8,7 @@
       <table class="table table-hover">
 
         <h4>献立作成ページ</h4>
-         <%= form_with model: @daily_menu do |f| %>
+         <%= form_with model: @daily_menu, local: true do |f| %>
            <label for="date">日付</label>
            <p><%= f.date_field :start_time %></p>
 
