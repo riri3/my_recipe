@@ -39,7 +39,7 @@
             <% daily_menus.each do |daily_menu| %>
              <ul style="list-style:none;">
                <li><%= daily_menu.meal_time.name %></li>
-               <li><%= link_to daily_menu.recipe.name, edit_daily_menu_path(daily_menu.id) %></li>
+               <li><%= link_to daily_menu.recipe.name, edit_daily_menu_path(daily_menu.id), data: {"turbolinks" => false} %></li>
              </ul>
            <% end %>
           <% end %>
