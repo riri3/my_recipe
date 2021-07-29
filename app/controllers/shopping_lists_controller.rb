@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ShoppingListsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @memo = current_user.shopping_lists.new
     @memos = current_user.shopping_lists.all

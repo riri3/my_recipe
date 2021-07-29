@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class DailyMenusController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @daily_menu = current_user.daily_menus.new
     @daily_menus = current_user.daily_menus.all.order(start_time: :ASC, meal_time_id: :ASC)
