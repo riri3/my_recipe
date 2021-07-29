@@ -6,13 +6,13 @@
       </li>
 
       <li>
-        <%= f.label :"単位" %>
-        <%= f.text_field :unit, placeholder: "本", size: "10", class: "form-control" %>
+        <%= f.label :"分量" %>
+        <%= f.number_field :quantity, placeholder: "1.5", min: '0.0', step: '0.1', size: "5", class: "form-control" %>
       </li>
 
       <li>
-        <%= f.label :"分量" %>
-        <%= f.number_field :quantity, placeholder: "1.5", min: '0.0', step: '0.1', size: "5", class: "form-control" %>
+        <%= f.label :"単位" %>
+        <%= f.text_field :unit, placeholder: "本", size: "10", class: "form-control" %>
       </li>
 
       　<%= link_to_remove_association "削除", f %>

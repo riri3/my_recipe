@@ -18,14 +18,18 @@
       <div class="col"><%= @recipe.genre.name %></div>
      </div>
 
+     <br>
+
      <div class="row">
       <table class="table">
       <div class="col-2">材料</div>
         <ul style="list-style:none;">
          <% @ingredients.each do |ingredient| %>
-           <div class="col">材料名：<%= ingredient.name %></div>
-           <div class="col">単位：<%= ingredient.unit %></div>
-           <div class="col">量：<%= ingredient.quantity %></div>
+           <div class="col">
+            <%= ingredient.name %>     <!--材料名-->
+            <%= ingredient.quantity %> <!--量-->
+            <%= ingredient.unit %>     <!--単位-->
+           </div>
         <% end %>
         </ul>
        </div>
