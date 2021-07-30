@@ -1,7 +1,15 @@
 <img src="<%= asset_path("logo.png") %>" class="d-block mx-auto" alt=""></img>
 
-<div class="text-center">
- <h3>MY RECIPEは毎日の献立作りをお手伝いするサイトです。</h3>
- <h6>このサイトひとつで、レシピの確認から<br>
+<div class="container">
+ <div class="row justify-content-center">
+  <div class="col-md-12 text-center">
+    <h3>MY RECIPEは毎日の献立作りをお手伝いするサイトです。</h3>
+    <br>
+    <h6>このサイトひとつで、レシピの確認から<br>
      日々の献立作りまで行うことができます。</h6>
+  </div>
+
+  <div class="row how_to_use">
+    <%= render 'how_to_use' %>
+  </div>
 </div>

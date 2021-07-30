@@ -14,16 +14,15 @@
       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
        <li class="nav-welcome nav-link text-light">ようこそ、<%= current_user.name %>さん！</li>
-       <li><%= link_to ' 使い方  | ', how_to_use_path %></li>
        <li><%= link_to ' レシピ登録  |', new_recipe_path %></li>
        <li><%= link_to ' レシピ一覧 |', recipes_path %></li>
        <li><%= link_to ' 献立作成 |', daily_menus_path, data: {"turbolinks" => false} %></li>
        <li><%= link_to ' マイページ  |', user_path(current_user.id) %></li>
        <li><%= link_to ' お買い物リスト  |', shopping_lists_path(current_user.id) %></li>
+       <li><%= link_to ' 使い方  | ', how_to_use_path %></li>
        <li><%= link_to ' お問い合わせ  |', contacts_path %></li>
        <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></li>
       <% else %>
-       <li><%= link_to ' How to use  |', how_to_use_path %></li>
        <li><%= link_to " 新規登録  |", new_user_registration_path %></li>
        <li><%= link_to " ログイン", new_user_session_path %></li>
       <% end %>
