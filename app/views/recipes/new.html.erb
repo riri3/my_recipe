@@ -8,9 +8,11 @@
 
   <%= form_with model: @recipe, local:true do |f| %>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-10">
      <h4>レシピの登録</h4>
+     <br>
+      <h6>&emsp;✳マークのある項目は入力必須です</h6>
 
      <table class="table">
       <tr>
@@ -19,12 +21,12 @@
       </tr>
 
       <tr>
-       <th>レシピ名</th>
-       <td><%= f.text_field :name, autoforcus: true, placeholder: "レシピ名", size: "30", class: "form-control" %></td>
+       <th>レシピ名 ✳︎</th>
+       <td><%= f.text_field :name, autoforcus: true, placeholder: "ゆでたまご", size: "30", class: "form-control" %></td>
       </tr>
 
       <tr>
-       <th>ジャンル</th>
+       <th>ジャンル ✳</th>
        <td><%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></td>
       </tr>
 
@@ -34,14 +36,14 @@
          <td>
            <div class="list-inline" id="ingredients">
              <%= f.fields_for :ingredients do |builder| %>
-              <%= f.label :"材料名",class: "ingredient_name" %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-              <%= f.label :"分量",class: "ingredient_quantity" %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <%= f.label :"材料名",class: "ingredient_name" %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <%= f.label :"分量",class: "ingredient_quantity" %>(0.1単位で変更可能)&emsp;&emsp;
               <%= f.label :"単位",class: "ingredient_unit" %>
               <%= render 'ingredient_fields', f: builder %>
              <% end %>
            </div>
            <div id="links">
-            <%= link_to_add_association ' ', f, :ingredients, class: "fas fa-plus-circle" %>
+            <%= link_to_add_association '', f, :ingredients, class: "fas fa-plus-circle fa-lg plus_icon" %>
            </div>
          </td>
          <br/>
@@ -50,7 +52,7 @@
 
       <tr>
        <th>手順</th>
-       <td><%= f.text_area :step, placeholder: "手順を記入してください", size: "30x5", class: "form-control" %></td>
+       <td><%= f.text_area :step, placeholder: "1.たっぷりのお水に卵を入れてゆでる。茹で時間はこのページを参照→http://my-recipe.net", size: "30x5", class: "form-control" %></td>
       </tr>
      </table>
 

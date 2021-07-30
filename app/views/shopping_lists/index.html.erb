@@ -2,7 +2,12 @@
     <div class="row">
       <div class="col-md-10 mx-auto">
         <h4>shopping List</h4>
-        <h6>献立に必要なお買い物リストです。</h6>
+        <br>
+        <h6>
+          献立に必要なお買い物リストです。<br>
+          （チェックボックスは保存されません。簡易的なチェックにお使いください。）
+        </h6>
+        <br>
 
         <%= link_to "先週", shopping_lists_path(target: "previous_week") %>
         <%= link_to "今週", shopping_lists_path(target: "this_week") %>
@@ -19,7 +24,7 @@
 
         <%= form_with model: @memo, class: 'js-form' do |f| %>
           <h6>memo</h6>
-          <%= f.text_area :memo, placeholder: "メモ", size: "30x5", class: "form-control memo-text" %>
+          <%= f.text_field :memo, placeholder: "メモ", placeholder: "おやつを忘れずに買う！", size: "30x5", class: "form-control memo-text" %>
 
           <br />
 
@@ -29,12 +34,13 @@
           </div>
         <% end %>
 
-
+        <div class="all-memos">
  　　　　　　　<% @memos.each do |memo| %>
  　　　　 　　　 <div id='memo_<%= memo.id %>'>
           　<%= render 'shopping_lists/memo', memo: memo %>
            </div>
           <% end %>
+        </div>
 
       </div>
     </div>

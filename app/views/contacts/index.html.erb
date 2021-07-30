@@ -3,27 +3,30 @@
 <% end %>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-10">
+  <div class="row justify-content-center">
+    <div class="col-6">
       <h4>お問い合わせフォーム</h4>
+       <br />
+       <h6>✳︎項目は入力必須です</h6>
+       <br />
 
        <%= form_with model: @contact, url: contacts_confirm_path, local: true do |f| %>
-        <%= f.label :お名前 %>
+        <%= f.label :お名前 %>✳︎
         <%= f.text_field :name, autoforcus: true, placeholder: "たなか たろう", size: "30", class: "form-control" %>
 
         <br />
 
-        <%= f.label :メールアドレス %>
+        <%= f.label :メールアドレス %>✳︎
         <%= f.email_field :email, placeholder: "abc@abc.com", class: "form-control" %>
 
         <br />
 
-        <%= f.label :件名 %>
+        <%= f.label :件名 %>✳︎
         <%= f.text_field :subject, placeholder: "レシピの登録について", class: "form-control" %>
 
         <br />
 
-        <%= f.label :お問い合わせ内容 %>
+        <%= f.label :お問い合わせ内容 %>✳︎
         <%= f.text_area :message, placeholder: "お問い合わせ内容", class: "form-control" %>
 
         <br />
@@ -32,7 +35,7 @@
          <%= f.submit "確認する", class: 'btn btn-outline-secondary' %>
         </div>
       <% end %>
-
+     <br />
     </div>
   </div>
 </div>

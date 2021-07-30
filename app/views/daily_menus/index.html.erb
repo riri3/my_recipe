@@ -8,13 +8,23 @@
       <table class="table table-hover">
 
         <h4>献立作成ページ</h4>
+        <br>
+        <h6>
+      　  1. 日付、朝食/昼食/夕食、レシピをそれぞれ選択します。<br>
+      　  2.「 登録する」ボタンを押します。<br>
+      　  3. カレンダーに献立が登録されます。
+        </h6>
+        <br>
          <%= form_with model: @daily_menu, local: true do |f| %>
+           <i class="far fa-calendar-alt"></i>&nbsp;
            <label for="date">日付</label>
            <p><%= f.date_field :start_time %></p>
 
+           <i class="far fa-clock"></i>&nbsp;
            <label for="meal_time">朝/昼/夜</label>
            <p><%= f.collection_select :meal_time_id, MealTime.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></p>
 
+           <i class="fas fa-utensils"></i>&nbsp;
            <label for="recipe">レシピ</label>
            <p><%= f.collection_select :recipe_id, current_user.recipes.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
 

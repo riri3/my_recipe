@@ -1,11 +1,11 @@
 <div class="container">
- <div class="row">
-  <div class="col-mx-10">
+ <div class="row justify-content-center">
+  <div class="col-8">
    <h4>登録情報</h4>
 
    <br />
 
-    <table>
+    <table class="table">
       <tr>
        <th>名前</th>
        <td><%= @user.name %></td>
@@ -16,7 +16,10 @@
       </tr>
     </table>
     <br>
-   <%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-outline-secondary" %>
+    <div class="text-center">
+     <%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-outline-secondary" %>
+    </div>
+    <br>
   </div>
  </div>
 </div>

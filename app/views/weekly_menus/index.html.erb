@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-10 mx-auto">
          <div>
-          <h5>今週の献立</h5>
+          <h5><i class="fas fa-seedling fa-lg"></i>今週の献立</h5>
           <%= week_calendar(events: @daily_menus) do |date, daily_menus| %>
             <%= link_to  date.day, daily_menus_path, data: {"turbolinks" => false} %>
             <ul style="list-style:none;">
@@ -16,7 +16,8 @@
 　　　　　  <% end %>
 　　　　　  </ul>
           <% end %>
-          <h6>今週のお買い物リストはこちら→<%= link_to "", shopping_lists_path, class: "fas fa-shopping-cart" %>
+          <h6>
+            今週のお買い物リストはこちら→<%= link_to "", shopping_lists_path, class: "fas fa-shopping-cart icon" %>
           </h6>
          </div>
    </div>

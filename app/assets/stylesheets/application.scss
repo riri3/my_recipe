@@ -32,16 +32,27 @@
   bottom: 20px;
 }
 
+.navbar {
+ background-color: #D9D9D9;
+}
 
 
  body {
+  font-family: 'Noto Sans JP', sans-serif;
   background-color: #D9D9D9;
-  padding-top: 60px;
-  // color: white;
+  padding-top: 100px;
+  color: #696969;
  }
 
+// ロゴ
+ .header-logo {
+  font-size: 40px;
+ }
+
+
+// フラッシュメッセージ装飾
  .flash {
-  color: $white;
+  color: white;
   text-align: center;
 
   .notice {
@@ -51,4 +62,23 @@
   .alert {
     background-color: #D4D818;
   }
+}
+
+h4 {
+  position: relative;
+  padding: 0.5em;
+  background: #a6d3c8;
+  color: white;
+  width: 70%;
+}
+
+
+h4::before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px;
 }

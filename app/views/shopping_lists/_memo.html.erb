@@ -1,6 +1,6 @@
 <ul class="form-inline memo.id">
   <li>
     <%= memo.memo %>
-    <%= link_to '×', memo, method: :delete, "data-confirm" => "本当に消しますか？", remote: true, class: "btn btn-outline-danger" %>
+    <%= link_to '', memo, method: :delete, class: "fas fa-trash-alt delete_icon", "data-confirm" => "本当に消しますか？", remote: true %>
   </li>
 </ul>

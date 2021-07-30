@@ -2,7 +2,7 @@
 
 class ShoppingListsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @memo = current_user.shopping_lists.new
     @memos = current_user.shopping_lists.all
@@ -94,7 +94,7 @@ class ShoppingListsController < ApplicationController
     @memo = current_user.shopping_lists.find(params[:id])
     @memos = current_user.shopping_lists.all
     @memo.destroy
-    flash[:alert] = 'メモを削除しました'
+    flash[:notice] = 'メモを削除しました'
     redirect_to shopping_lists_path
   end
 
