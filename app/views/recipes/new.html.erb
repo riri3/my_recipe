@@ -34,6 +34,9 @@
          <td>
            <div class="list-inline" id="ingredients">
              <%= f.fields_for :ingredients do |builder| %>
+              <%= f.label :"材料名",class: "ingredient_name" %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <%= f.label :"分量",class: "ingredient_quantity" %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <%= f.label :"単位",class: "ingredient_unit" %>
               <%= render 'ingredient_fields', f: builder %>
              <% end %>
            </div>
