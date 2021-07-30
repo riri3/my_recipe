@@ -16,7 +16,11 @@
         <% @ingredients.each do |ingredient| %>
          <div class="form-check">
            <input class="form-check-input" type="checkbox" id=shopping_list>
-           <label class="form-check-label" for=daily_menu><%= ingredient.name %><%= ingredient.quantity %><%= ingredient.unit %></label>
+           <label class="form-check-label" for=daily_menu>
+             <%= ingredient.name %><!--材料名-->
+             <%= ingredient.quantity %><!--量-->
+             <%= ingredient.unit %><!--単位-->
+           </label>
          </div>
         <% end %>
 
