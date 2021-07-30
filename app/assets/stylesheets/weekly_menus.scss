@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// 網掛けの下線部分
 h5 {
   position: relative;
   padding: 1.5rem 1rem;
@@ -19,4 +20,8 @@ h5:after {
   background-size: 7px 7px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.top {
+  margin: 0px;
 }

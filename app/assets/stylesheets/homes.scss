@@ -6,27 +6,7 @@
   margin: 100px 10px 10px 10px;
 }
 
+// 黄色の下線
 h3{
   background: linear-gradient(transparent 60%, yellow 40%);
 }
-
-
-
-// h3 {
-//   position: relative;
-//   padding: 1.5rem 1rem;
-// }
-
-// h3:after {
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 10px;
-//   content: '';
-//   background-image: -webkit-repeating-linear-gradient(135deg, #000, #000 1px, transparent 2px, transparent 5px);
-//   background-image: repeating-linear-gradient(-45deg, #000, #000 1px, transparent 2px, transparent 5px);
-//   background-size: 7px 7px;
-//   -webkit-backface-visibility: hidden;
-//   backface-visibility: hidden;
-// }

@@ -17,9 +17,9 @@
        <li><%= link_to ' レシピ登録  |', new_recipe_path %></li>
        <li><%= link_to ' レシピ一覧 |', recipes_path %></li>
        <li><%= link_to ' 献立作成 |', daily_menus_path, data: {"turbolinks" => false} %></li>
-       <li><%= link_to ' マイページ  |', user_path(current_user.id) %></li>
        <li><%= link_to ' お買い物リスト  |', shopping_lists_path(current_user.id) %></li>
        <li><%= link_to ' 使い方  | ', how_to_use_path %></li>
+       <li><%= link_to ' マイページ  |', user_path(current_user.id) %></li>
        <li><%= link_to ' お問い合わせ  |', contacts_path %></li>
        <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></li>
       <% else %>
