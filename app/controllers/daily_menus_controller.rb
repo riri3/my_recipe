@@ -9,13 +9,13 @@ class DailyMenusController < ApplicationController
   end
 
   def create
-    daily_menu = current_user.daily_menus.new(daily_menu_params)
-    if daily_menu.save
+    @daily_menu = current_user.daily_menus.new(daily_menu_params)
+    if @daily_menu.save
       flash[:notice] = '献立に登録しました！'
       redirect_to daily_menus_path
     else
       flash.now[:alert] = '登録内容が正しくありません'
-      render :new
+      render :index
     end
   end
 
