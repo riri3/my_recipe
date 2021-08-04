@@ -9,6 +9,8 @@
   <div class="row">
     <div class="col-md-10">
      <h4>レシピ編集</h4>
+     <br>
+      <h6>&emsp;✳マークのある項目は入力必須です</h6>
 
      <table class="table">
       <tr>
@@ -17,12 +19,12 @@
       </tr>
 
       <tr>
-       <th>レシピ名</th>
+       <th>レシピ名 ✳</th>
        <td><%= f.text_field :name, autoforcus: true, placeholder: "レシピ名", size: "30", class: "form-control" %></td>
       </tr>
 
       <tr>
-       <th>ジャンル</th>
+       <th>ジャンル ✳</th>
        <td><%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></td>
       </tr>
 
