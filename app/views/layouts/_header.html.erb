@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-       <li class="nav-welcome nav-link text-light">ようこそ、<%= current_user.name %>さん！</li>
+       <li class="nav-welcome nav-link text-light"><strong>ようこそ、<%= current_user.name %>さん！</strong></li>
        <li><%= link_to ' レシピ登録  |', new_recipe_path %></li>
        <li><%= link_to ' レシピ一覧 |', recipes_path %></li>
        <li><%= link_to ' 献立作成 |', daily_menus_path, data: {"turbolinks" => false} %></li>
