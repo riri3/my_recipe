@@ -16,8 +16,10 @@
   </head>
 
   <body>
+    <!--ヘッダー-->
     <%= render 'layouts/header' %>
 
+    <!--フラッシュメッセージ-->
     <div class="flash">
      <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: key) %>
@@ -26,11 +28,8 @@
 
      <%= yield %>
 
-    </div>
-
-   <footer class='d-flex align-items-center justify-content-center'>
-    <h6>Copyright ©2021 R.Kamijo | All rights reserved.</h6>
-   </footer>
+　　<!--フッター-->
+    <%= render 'layouts/footer' %>
 
     <!--TOP戻るボタン-->
     <span id="back">
