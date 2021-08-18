@@ -66,6 +66,8 @@ gem 'refile-mini_magick'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'simple_calendar', '~> 2.4'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 group :production do
   gem 'mysql2'
 end
