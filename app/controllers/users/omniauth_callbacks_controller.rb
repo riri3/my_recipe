@@ -35,8 +35,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    # 先ほどuser.rbで記述したメソッド(from_omniauth)をここで使っています
-    # 'request.env["omniauth.auth"]'この中にgoogoleアカウントから取得したメールアドレスや、名前と言ったデータが含まれています
+    # from_omniauthメソッド（user.rb）を利用
+    # 'request.env["omniauth.auth"]'の中にgoogoleアカウントから取得したメールアドレスや、名前と言ったデータが含まれる
     @user = User.from_omniauth(request.env["omniauth.auth"])
     sign_in_and_redirect @user, event: :authentication
     set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
