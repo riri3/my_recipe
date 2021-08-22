@@ -22,6 +22,7 @@ class ShoppingListsController < ApplicationController
 
       @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
       @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
+      @daily_menus = DailyMenu.where(start_time: @previous_from...@previous_to)
 
     elsif params[:target] == "next_week" # 翌週１週間の献立で使われる材料を取得
       @next_from = now.next_week(:monday)
@@ -36,6 +37,7 @@ class ShoppingListsController < ApplicationController
 
       @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
       @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
+      @daily_menus = DailyMenu.where(start_time: @next_from...@next_to)
 
     elsif params[:target] == "this_week" # 今週１週間の献立で使われる材料を取得
       # 今週の週間献立すべてを取得
@@ -54,6 +56,7 @@ class ShoppingListsController < ApplicationController
       @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
       # 材料テーブルからそのレシピの材料idをもつ材料を取得
       @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
+      @daily_menus = DailyMenu.where(start_time: @from...@to)
 
     else
       # 今週の週間献立すべてを取得
@@ -72,6 +75,7 @@ class ShoppingListsController < ApplicationController
       @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
       # 材料テーブルからそのレシピの材料idをもつ材料を取得
       @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
+      @daily_menus = DailyMenu.where(start_time: @from...@to)
     end
   end
 

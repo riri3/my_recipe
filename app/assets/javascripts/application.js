@@ -24,6 +24,7 @@
 
 
 // 一番上まで戻るボタン
+$(document).on('turbolinks:load', function() {
 $(function() {
   $('#back a').on('click',function(event){
     $('body, html').animate({
@@ -35,12 +36,13 @@ $(function() {
 
 
 // shopping_list タブメニュー
-$('#tab-contents .tab[id != "this_week"]').hide();
+  $('#tab-contents .tab[id != "this_week"]').hide();
 
-$('#tab-menu a').on('click', function(event) {
-  $("#tab-contents .tab").hide();
-  $("#tab-menu .active").removeClass("active");
-  $(this).addClass("active");
-  $($(this).attr("href")).show();
-  event.preventDefault();
+  $('#tab-menu a').on('click', function(event) {
+    $("#tab-contents .tab").hide();
+    $("#tab-menu .active").removeClass("active");
+    $(this).addClass("active");
+    $($(this).attr("href")).show();
+    event.preventDefault();
+  });
 });
