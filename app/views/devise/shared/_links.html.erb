@@ -20,6 +20,7 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "#{OmniAuth::Utils.camelize(provider)}でログインする", omniauth_authorize_path(resource_name, provider), method: :post %><br />
+    <i class="fab fa-google"></i>
+    <%= link_to "Googleアカウントでログインする", omniauth_authorize_path(resource_name, provider), method: :post %><br />
   <% end %>
 <% end %>
