@@ -27,23 +27,29 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
-  
-  
+
+
   # callback for google
   def google_oauth2
     callback_for(:google)
   end
 
   def callback_for(provider)
-    # from_omniauthメソッド（user.rb）を利用
-    # 'request.env["omniauth.auth"]'の中にgoogoleアカウントから取得したメールアドレスや、名前と言ったデータが含まれる
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-    sign_in_and_redirect @user, event: :authentication
-    set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+    # 'request.env["omniauth.auth"]'の中にgoogleアカウントから取得したメールアドレスや名前などのデータが含まれる
+    @user = User.find_or_create_by('email': request.env["omniauth.auth"].info.email, 'name': request.env["omniauth.auth"].info.name)
+    @user.name = request.env["omniauth.auth"]["info"]["name"]
+    @user.email = request.env["omniauth.auth"]["info"]["email"]
+    @user.uid = request.env["omniauth.auth"]["extra"]["id_info"]["sub"]
+    @user.provider = "google_oauth2"
+    @user.password = SecureRandom.hex(10)
+    if @user.save
+      sign_in_and_redirect @user, event: :authentication
+      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+    end
   end
 
   def failure
     redirect_to root_path
   end
-  
+
 end

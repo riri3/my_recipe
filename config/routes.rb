@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
+    omniauth_callbacks: "users/omniauth_callbacks" #google認証 
   }
   root to: 'homes#top'
   get 'how_to_use' => 'homes#how_to_use'
