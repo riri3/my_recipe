@@ -1,5 +1,5 @@
 <div class="container">
-　<div class="row">
+  <div class="row">
     <div class="col-md-10">
 
       <%# if @recipe.user_id == current_user.id %>
@@ -37,7 +37,7 @@
      </div>
     <% end %>
 
-　<div class="category bg-secondary text-light">アジア/エスニック</div>
+  <div class="category bg-secondary text-light">アジア/エスニック</div>
     <% @genre4.each do |genre| %>
      <div class="mb-20">
       <%= link_to recipe_path(genre) do %>

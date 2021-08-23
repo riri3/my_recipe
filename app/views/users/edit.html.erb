@@ -1,16 +1,16 @@
 <%= form_with model: @user do |f| %>
-　<%= render 'layouts/errors', obj: f.object %>
+  <%= render 'layouts/errors', obj: f.object %>
 <% end %>
 
 <div class="container">
 
-　<div class="row">
-　  <div class="mx-auto">
-　   <h4>My page編集画面</h4>
-　    <%= form_with model:@user, local:true do |f| %>
+  <div class="row">
+   <div class="mx-auto">
+    <h4>My page編集画面</h4>
+      <%= form_with model:@user, local:true do |f| %>
 
-　     <table>
-　      <tr>
+       <table>
+        <tr>
          <th>名前</th>
          <td><%=f.text_field :name, autofocus: true %></td>
         </tr>
@@ -19,8 +19,8 @@
          <th>メールアドレス</th>
          <td><%= f.email_field :email, autofocus: true %></td>
         </tr>
-　   　</table>
-　   　<br>
+      </table>
+      <br>
        <%= f.submit '変更を保存', class:"btn btn-outline-secondary" %>
       <% end %>
     </div>
