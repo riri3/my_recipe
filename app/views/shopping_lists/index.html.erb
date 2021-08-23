@@ -16,8 +16,8 @@
           </ul>
 
           <div id="tab-contents">
-         　　<div id="previous_week" class="tab">
-         　 　<% @last_week_menus.each do |last_week_menu| %>
+           <div id="previous_week" class="tab">
+             <% @last_week_menus.each do |last_week_menu| %>
               <% last_week_menu.recipe.ingredients.each do |ingredient| %>
                <div class="form-check">
                 <input class="form-check-input" type="checkbox" id=shopping_list>
@@ -29,10 +29,10 @@
                </div>
               <% end %>
              <% end %>
-         　</div>
+           </div>
 
-         　　<div id="this_week" class="tab">
-         　 　<% @this_week_menus.each do |this_week_menu| %>
+           <div id="this_week" class="tab">
+             <% @this_week_menus.each do |this_week_menu| %>
               <% this_week_menu.recipe.ingredients.each do |ingredient| %>
                <div class="form-check">
                 <input class="form-check-input" type="checkbox" id=shopping_list>
@@ -44,10 +44,10 @@
                </div>
               <% end %>
              <% end %>
-         　　</div>
+            </div>
 
-         　　<div id="next_week" class="tab">
-         　 　<% @next_week_menus.each do |next_week_menu| %>
+             <div id="next_week" class="tab">
+              <% @next_week_menus.each do |next_week_menu| %>
               <% next_week_menu.recipe.ingredients.each do |ingredient| %>
                <div class="form-check">
                 <input class="form-check-input" type="checkbox" id=shopping_list>
@@ -59,7 +59,7 @@
                </div>
               <% end %>
              <% end %>
-         　　</div>
+           </div>
           </div>
 
         <br />
