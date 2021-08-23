@@ -36,12 +36,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     # 'request.env["omniauth.auth"]'の中にgoogleアカウントから取得したメールアドレスや名前などのデータが含まれる
-    @user = User.find_or_create_by('email': request.env["omniauth.auth"].info.email, 'name': request.env["omniauth.auth"].info.name)
+    @user = User.find_or_create_by('name': request.env["omniauth.auth"]["info"]["name"], 'email': request.env["omniauth.auth"]["info"]["email"])
     @user.name = request.env["omniauth.auth"]["info"]["name"]
     @user.email = request.env["omniauth.auth"]["info"]["email"]
     @user.uid = request.env["omniauth.auth"]["extra"]["id_info"]["sub"]
     @user.provider = "google_oauth2"
-    @user.password = SecureRandom.hex(10)
+    @user.password = SecureRandom.hex(10)  # ランダムに16進数文字列を作成しパスワードに設定する
     if @user.save
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
