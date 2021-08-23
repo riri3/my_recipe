@@ -11,9 +11,9 @@
         <br>
         <h6><使い方></h6>
         <h6>
-      　  1. 日付、朝食/昼食/夕食、レシピをそれぞれ選択します。<br>
-      　  2.「 登録する」ボタンを押します。<br>
-      　  3. カレンダーに献立が登録されます。
+         1. 日付、朝食/昼食/夕食、レシピをそれぞれ選択します。<br>
+         2.「 登録する」ボタンを押します。<br>
+         3. カレンダーに献立が登録されます。
         </h6>
         <br>
          <%= form_with model: @daily_menu, local: true do |f| %>
@@ -41,12 +41,10 @@
          <!--  </p>-->
          <!--</div>-->
 
-
         <div class="calendar">
          <div id="month_calendar"><!--デフォルト表示-->
-          <%= month_calendar events:@daily_menus do |date, daily_menus| %>
+          <%= month_calendar(events: @daily_menus) do |date, daily_menus| %>
             <%= date.day %>
-
             <% daily_menus.each do |daily_menu| %>
              <ul style="list-style:none;">
                <li><%= daily_menu.meal_time.name %></li>
@@ -57,7 +55,7 @@
          </div>
 
          <div id="week_calendar">
-          <%= week_calendar events:@daily_menus do |date, daily_menus| %>
+          <%= week_calendar(events: @daily_menus) do |date, daily_menus| %>
            <%= date.day %>
 
             <% daily_menus.each do |daily_menu| %>
