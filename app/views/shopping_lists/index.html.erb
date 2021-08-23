@@ -9,50 +9,58 @@
         </h6>
         <br>
          <div class="wrap">
-          <!--<ul id="tab-menu">-->
-          <!-- <li><a href="#previous_week" class="">先週</a></li>-->
-          <!-- <li><a href="#this_week" class="active">今週</a></li>-->
-          <!-- <li><a href="#next_week" class="">来週</a></li>-->
-          <!--</ul>-->
-
-          <!--<div id="tab-contents">-->
-
-         　<!--　<div id="previous_week" class="tab">-->
-
-         　<!--　　　  <p>TAB1のテキストが入ります。</p>-->
-         　<!--　</div>-->
-
-         　<!--　<div id="this_week" class="tab">-->
-
-         　<!--　　　  <p>tab2のテキストが入ります。</p>-->
-         　<!--　</div>-->
-
-         　<!--　<div id="next_week" class="tab">-->
-
-         　<!--　　　  <p>TABのテキストが入ります。</p>-->
-         　<!--　</div>-->
-
-         <!-- </div>-->
-         <!--</div>-->
-
           <ul id="tab-menu">
-           <li><%= link_to "先週", shopping_lists_path(target: "previous_week", class: "") %></li>
-           <li><%= link_to "今週", shopping_lists_path(target: "this_week", class: "active") %></li>
-           <li><%= link_to "来週", shopping_lists_path(target: "next_week", class: "") %></li>
+           <li><a href="#previous_week" class="">先週</a></li>
+           <li><a href="#this_week" class="active">今週</a></li>
+           <li><a href="#next_week" class="">来週</a></li>
           </ul>
 
-          <% @daily_menus.each do |daily_menu| %>
-            <% daily_menu.recipe.ingredients.each do |ingredient| %>
-              <div class="form-check">
-              <input class="form-check-input" type="checkbox" id=shopping_list>
-              <label class="form-check-label" for=daily_menu>
-              <%= ingredient.name %>    <!--材料名-->
-              <%= ingredient.quantity %><!--量-->
-              <%= ingredient.unit %>    <!--単位-->
-              </label>
-              </div>
-            <% end %>
-          <% end %>
+          <div id="tab-contents">
+         　　<div id="previous_week" class="tab">
+         　 　<% @last_week_menus.each do |last_week_menu| %>
+              <% last_week_menu.recipe.ingredients.each do |ingredient| %>
+               <div class="form-check">
+                <input class="form-check-input" type="checkbox" id=shopping_list>
+                <label class="form-check-label" for=daily_menu>
+                 <%= ingredient.name %>    <!--材料名-->
+                 <%= ingredient.quantity %><!--量-->
+                 <%= ingredient.unit %>    <!--単位-->
+                </label>
+               </div>
+              <% end %>
+             <% end %>
+         　</div>
+
+         　　<div id="this_week" class="tab">
+         　 　<% @this_week_menus.each do |this_week_menu| %>
+              <% this_week_menu.recipe.ingredients.each do |ingredient| %>
+               <div class="form-check">
+                <input class="form-check-input" type="checkbox" id=shopping_list>
+                <label class="form-check-label" for=daily_menu>
+                 <%= ingredient.name %>    <!--材料名-->
+                 <%= ingredient.quantity %><!--量-->
+                 <%= ingredient.unit %>    <!--単位-->
+                </label>
+               </div>
+              <% end %>
+             <% end %>
+         　　</div>
+
+         　　<div id="next_week" class="tab">
+         　 　<% @next_week_menus.each do |next_week_menu| %>
+              <% next_week_menu.recipe.ingredients.each do |ingredient| %>
+               <div class="form-check">
+                <input class="form-check-input" type="checkbox" id=shopping_list>
+                <label class="form-check-label" for=daily_menu>
+                 <%= ingredient.name %>    <!--材料名-->
+                 <%= ingredient.quantity %><!--量-->
+                 <%= ingredient.unit %>    <!--単位-->
+                </label>
+               </div>
+              <% end %>
+             <% end %>
+         　　</div>
+          </div>
 
         <br />
 
@@ -68,9 +76,9 @@
         <% end %>
 
         <div class="all-memos">
- 　　　　　　　<% @memos.each do |memo| %>
- 　　　　 　　　 <div id='memo_<%= memo.id %>'>
-          　<%= render 'shopping_lists/memo', memo: memo %>
+         <% @memos.each do |memo| %>
+           <div id='memo_<%= memo.id %>'>
+            <%= render 'shopping_lists/memo', memo: memo %>
            </div>
           <% end %>
         </div>
@@ -78,6 +86,3 @@
       </div>
     </div>
 </div>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/script.js"></script>
