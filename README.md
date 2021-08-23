@@ -1,11 +1,14 @@
-# My recipe
+# MY RECIPE（レシピ登録&献立作成サイト）
+
+<img width="1435" alt="MY RECIPE" src="https://user-images.githubusercontent.com/81369773/130522654-f2e84340-fd9d-45da-a749-b2be223785ee.png">
+
 
 ## サイト概要
 My recipeは、世界にひとつ、自分だけのレシピを集めた献立作成サイトです。
 このサイトひとつで、レシピの確認から買い物で必要な材料一覧確認、献立作りまで一貫して行うことができます。
 
 
-【使い方】   
+【使い方】
 １.自分が作れる料理のレシピ（作りたいもののレシピでも可）や材料、手順などを登録します。
 ２.レシピ一覧の中から献立に組み込みたいレシピを選択し、直感的に献立を作成できます。
 
@@ -62,12 +65,12 @@ My recipeは、世界にひとつ、自分だけのレシピを集めた献立�
 
 
 - テーブル定義書
-  
+
 https://www.icloud.com/numbers/0P9p4sC-kTNE95ulhf_pCbjmQ
 
 
 - アプリケーション詳細設計書
-  
+
 <img width="437" alt="詳細設計" src="https://user-images.githubusercontent.com/81369773/127392510-25fc73bf-6917-4c8f-b7e8-d382d1f5e5ab.png">
 <img width="265" alt="gem" src="https://user-images.githubusercontent.com/81369773/127393224-97f2905e-ce9d-4728-aad8-e370b37c41cf.png">
 
@@ -83,4 +86,4 @@ https://docs.google.com/spreadsheets/d/1B2UUvImMW1hhfa6NOclQCB_xTi98W4ZMobh7ehn3
 - IDE：Cloud9
 
 ## 使用素材
-- Canva
+- ロゴ素材：Canva https://www.canva.com/ja_jp/
