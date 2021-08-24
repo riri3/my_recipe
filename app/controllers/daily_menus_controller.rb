@@ -14,6 +14,7 @@ class DailyMenusController < ApplicationController
       flash[:notice] = '献立に登録しました！'
       redirect_to daily_menus_path
     else
+      @daily_menus = current_user.daily_menus.all.order(start_time: :ASC, meal_time_id: :ASC)
       flash.now[:alert] = '登録内容が正しくありません'
       render :index
     end
