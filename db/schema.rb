@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_123440) do
   create_table "shopping_lists", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "memo"
+    t.integer "memo"
     t.integer "user_id"
   end
 

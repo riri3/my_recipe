@@ -18,6 +18,6 @@ module MyRecipe
     config.paths.add 'lib', eager_load: true
     config.time_zone = 'Tokyo' # タイムゾーンを日本時間に設定
     config.i18n.default_locale = :ja  # デフォルトのロケールを日本（ja）に設定
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
   end
 end
