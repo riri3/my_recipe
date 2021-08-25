@@ -87,14 +87,15 @@ ja:
   # バリデーションエラーメッセージ
   # 問い合わせ
   activerecord:
-    models:
-      contact: "お問い合わせ"
+    errors:
+      models:
+       contact: "お問い合わせ"
     attributes:
-      contact:
-        name: "名前"
-        email: "メールアドレス"
-        subject: "件名"
-        message: "お問い合わせ内容"
+       contact:
+         name: "名前"
+         email: "メールアドレス"
+         subject: "件名"
+         message: "お問い合わせ内容"
   # ジャンル
   activerecord:
     models:
@@ -103,28 +104,28 @@ ja:
       genre:
         name: "ジャンル"
   # 材料
-  # activerecord:
-  #   models:
-  #     ingredient: "材料"
-  #   attributes:
-  #     ingredient:
-  #       name: "材料名"
-  #       unit: "単位"
-  #       quantity: "量"
+  activerecord:
+    models:
+      ingredient: "材料"
+    attributes:
+      ingredient:
+        name: "材料名"
+        unit: "単位"
+        quantity: "量"
   # レシピ
-  # activerecord:
-  #   models:
-  #     recipe: "レシピ"
-  #   attributes:
-  #     recipe:
-  #       name: "レシピ名"
-  #       step: "手順"
-  #       image: "画像"
+  activerecord:
+    models:
+      recipe: "レシピ"
+    attributes:
+      recipe:
+        name: "レシピ名"
+        step: "手順"
+        image: "画像"
   # ユーザー
-  # activerecord:
-  #   models:
-  #     user: "ユーザー"
-  #   attributes:
-  #     user:
-  #       name: "名前"
-  #       email: "メールアドレス"
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
