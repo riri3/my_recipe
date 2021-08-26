@@ -1,42 +1,28 @@
 ja:
   activerecord:
-    models:
-      contact: お問い合わせ
     attributes:
       contact:
         name: 名前
         email: メールアドレス
         subject: 件名
         message: お問い合わせ内容
-  # daily_menu
-      daily_menu: 献立
-    attributes:
       daily_menu:
+        recipe: レシピ
+        meal_time: 朝食/昼食/夕食
         recipe_id: レシピ
         start_time: 日付
         meal_time_id: 朝食/昼食/夕食
-  # ジャンル
-      genre:: ジャンル
-    attributes:
       genre:
         name: ジャンル
-  # 材料
-      ingredient: 材料
-    attributes:
       ingredient:
         name: 材料名
         unit: 単位
         quantity: 量
-  # レシピ
-      recipe: レシピ
-    attributes:
       recipe:
         name: レシピ名
         step: 手順
         image: 画像
-  # ユーザー
-      user: ユーザー
-    attributes:
+        genre: ジャンル
       user:
         name: 名前
         email: メールアドレス
