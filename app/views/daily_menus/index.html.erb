@@ -12,7 +12,7 @@
         <h6><使い方></h6>
         <h6>
          1. 日付、朝食/昼食/夕食、レシピをそれぞれ選択します。<br>
-         2.「 登録する」ボタンを押します。<br>
+         2.「登録する」ボタンを押します。<br>
          3. カレンダーに献立が登録されます。
         </h6>
         <br>
@@ -27,7 +27,7 @@
 
            <i class="fas fa-utensils"></i>&nbsp;
            <label for="recipe">レシピ</label>
-           <p><%= f.collection_select :recipe_id, current_user.recipes.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control"  %></p>
+           <p><%= f.collection_select :recipe_id, current_user.recipes.all.order(:name), :id, :name, prompt: "--選択してください--", size: "30", class: "form-control", data: {"turbolinks" => false}  %></p>
 
            <%= f.submit "登録する", class: 'btn btn-outline-secondary' %>
          <% end %>
