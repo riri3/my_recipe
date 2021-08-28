@@ -12,7 +12,7 @@ class Recipe < ApplicationRecord
 
   has_many :daily_menus, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 }
 
   attachment :image, destroy: false
 
