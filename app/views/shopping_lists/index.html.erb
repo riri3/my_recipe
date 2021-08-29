@@ -1,4 +1,10 @@
 <div class="container">
+
+<%= form_with model: @memo do |f| %>
+  <%= render 'layouts/errors', obj: f.object %>
+<% end %>
+
+
     <div class="row">
       <div class="col-md-10 mx-auto">
         <h4>Shopping List</h4>
