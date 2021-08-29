@@ -4,12 +4,15 @@
 
 <div class="container">
 
-  <div class="row">
-   <div class="mx-auto">
-    <h4>My page編集画面</h4>
-      <%= form_with model:@user, local:true do |f| %>
+ <%= form_with model:@user, local:true do |f| %>
 
-       <table>
+  <div class="row">
+   <div class="col-md-10">
+    <h4>マイページ 編集画面</h4>
+    <br>
+
+
+       <table class="table">
         <tr>
          <th>名前</th>
          <td><%=f.text_field :name, autofocus: true %></td>
@@ -19,10 +22,16 @@
          <th>メールアドレス</th>
          <td><%= f.email_field :email, autofocus: true %></td>
         </tr>
+
       </table>
+
       <br>
+
+      <div class="text-center">
        <%= f.submit '変更を保存', class:"btn btn-outline-secondary" %>
+       <%= link_to "Back", user_path(@user), class: 'btn btn-outline-info' %>
       <% end %>
+      </div>
     </div>
  </div>
 </div>
