@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe User 'Userモデルのテスト', type: :model do
+RSpec.describe User, 'Userモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { user.valid? }
 
@@ -46,8 +46,8 @@ RSpec.describe User 'Userモデルのテスト', type: :model do
         is_expected.to eq false
       end
       it '一意であること' do
-        # 
-      end  
+        #
+      end
     end
   end
 

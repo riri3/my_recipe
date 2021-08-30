@@ -10,19 +10,19 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/'
       end
-      it 'Log inリンクが表示される: 左上から2番目のリンクが「Log in」である' do
+      it 'ログインリンクが表示される: 左上から2番目のリンクが「ログイン」である' do
         log_in_link = find_all('a')[2].native.inner_text
         expect(log_in_link).to match(/log in/i)
       end
-      it 'Log inリンクの内容が正しい' do
+      it 'ログインリンクの内容が正しい' do
         log_in_link = find_all('a')[2].native.inner_text
         expect(page).to have_link log_in_link, href: new_user_session_path
       end
-      it 'Sign Upリンクが表示される: 左上から1番目のリンクが「Sign Up」である' do
+      it '蜃気楼徳リンクが表示される: 左上から1番目のリンクが「新規登録」である' do
         sign_up_link = find_all('a')[1].native.inner_text
         expect(sign_up_link).to match(/sign up/i)
       end
-      it 'Sign Upリンクの内容が正しい' do
+      it '新規登録リンクの内容が正しい' do
         sign_up_link = find_all('a')[1].native.inner_text
         expect(page).to have_link sign_up_link, href: new_user_registration_path
       end
