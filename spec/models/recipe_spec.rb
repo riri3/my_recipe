@@ -23,6 +23,7 @@ RSpec.describe Recipe, "Recipeモデルのテスト", type: :model do
         is_expected.to eq false
       end
     end
+  end
 
 
   describe '実際に保存してみる' do
@@ -42,5 +43,4 @@ RSpec.describe Recipe, "Recipeモデルのテスト", type: :model do
 	    end
 	  end
   end
- end
 end
