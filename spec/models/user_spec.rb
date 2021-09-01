@@ -38,11 +38,11 @@ RSpec.describe User, 'Userモデルのテスト', type: :model do
         is_expected.to eq false
       end
       it '50文字以下であること: 50文字は〇' do
-        user.introduction = Faker::Lorem.characters(number: 50)
+        user.email = Faker::Lorem.characters(number: 50)
         is_expected.to eq true
       end
       it '50文字以下であること: 51文字は×' do
-        user.introduction = Faker::Lorem.characters(number: 51)
+        user.email = Faker::Lorem.characters(number: 51)
         is_expected.to eq false
       end
       it '一意であること' do
