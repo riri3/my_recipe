@@ -99,7 +99,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it '正しく新規登録される' do
         expect { click_button 'Sign up' }.to change(User.all, :count).by(1)
       end
-      it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
+      it '新規登録後のリダイレクト先が、新規登録できたユーザの週間献立画面になっている' do
         click_button '新規登録'
         expect(current_path).to eq '/weekly_menus/' + User.last.id.to_s
       end
