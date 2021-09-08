@@ -8,14 +8,17 @@ class ShoppingListsController < ApplicationController
     @memos = current_user.shopping_lists.all
 
     now = Time.current
+    # 先週の献立
     @previous_from = now.prev_week(:monday)
     @previous_to = now.prev_week(:sunday)
-    @last_week_menus = current_user.daily_menus.where(start_time: @previous_from...@previous_togit )
+    @last_week_menus = current_user.daily_menus.where(start_time: @previous_from...@previous_to)
 
+　　# 来週の献立 
     @next_from = now.next_week(:monday)
     @next_to = now.next_week(:sunday)
     @next_week_menus = current_user.daily_menus.where(start_time: @next_from...@next_to)
 
+    # 今週の
     @from = now.beginning_of_week
     @to = now.end_of_week
     @this_week_menus = current_user.daily_menus.where(start_time: @from...@to)
