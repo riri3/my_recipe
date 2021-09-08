@@ -13,7 +13,7 @@ class ShoppingListsController < ApplicationController
     @previous_to = now.prev_week(:sunday)
     @last_week_menus = current_user.daily_menus.where(start_time: @previous_from...@previous_to)
 
-　　# 来週の献立 
+    # 来週の献立 
     @next_from = now.next_week(:monday)
     @next_to = now.next_week(:sunday)
     @next_week_menus = current_user.daily_menus.where(start_time: @next_from...@next_to)
