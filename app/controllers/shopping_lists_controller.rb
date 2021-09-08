@@ -18,82 +18,10 @@ class ShoppingListsController < ApplicationController
     @next_to = now.next_week(:sunday)
     @next_week_menus = current_user.daily_menus.where(start_time: @next_from...@next_to)
 
-    # 今週の
+    # 今週の献立
     @from = now.beginning_of_week
     @to = now.end_of_week
     @this_week_menus = current_user.daily_menus.where(start_time: @from...@to)
-
-
-
-
-  #   if params[:target] == "previous_week" # 先週１週間の献立で使われる材料を取得
-  #     @previous_from = now.prev_week(:monday)
-  #     @previous_to = now.prev_week(:sunday)
-  #     # @last_week_menus = current_user.daily_menus.where(start_time: @next_from...@next_to)
-
-
-  #     recipe_ids = []
-  #     @last_week_menus.each do |menu|
-  #       recipe = menu.recipe
-  #       recipe_ids << recipe.id
-  #     end
-
-  #     @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
-  #     @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
-  #     @last_week_menus = DailyMenus.where(start_time: @next_from...@next_to)
-
-
-  #   elsif params[:target] == "next_week" # 翌週１週間の献立で使われる材料を取得
-  #     @next_from = now.next_week(:monday)
-  #     @next_to = now.next_week(:sunday)
-  #     @next_week_menus = current_user.daily_menus.where(start_time: @next_from...@next_to)
-
-  #     recipe_ids = []
-  #     @next_week_menus.each do |menu|
-  #       recipe = menu.recipe
-  #       recipe_ids << recipe.id
-  #     end
-
-  #     @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
-  #     @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
-
-  #   elsif params[:target] == "this_week" # 今週１週間の献立で使われる材料を取得
-  #     # 今週の週間献立すべてを取得
-  #     @from = now.beginning_of_week
-  #     @to = now.end_of_week
-  #     @this_week_menus = current_user.daily_menus.where(start_time: @from...@to)
-
-  #     # 今週の週間献立に登録されているレシピを取得
-  #     recipe_ids = []
-  #     @this_week_menus.each do |menu|
-  #       recipe = menu.recipe
-  #       recipe_ids << recipe.id
-  #     end
-
-  #     # 中間テーブルからレシピの材料idを取得
-  #     @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
-  #     # 材料テーブルからそのレシピの材料idをもつ材料を取得
-  #     @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
-
-  #   else
-  #     # 今週の週間献立すべてを取得
-  #     @from = now.beginning_of_week
-  #     @to = now.end_of_week
-  #     @this_week = current_user.daily_menus.where(start_time: @from...@to)
-
-  #     # 今週の週間献立に登録されているレシピを取得
-  #     recipe_ids = []
-  #     @this_week.each do |menu|
-  #       recipe = menu.recipe
-  #       recipe_ids << recipe.id
-  #     end
-
-  #     # 中間テーブルからレシピの材料idを取得
-  #     @ingredient_ids = RecipeIngredient.where(recipe_id: recipe_ids).pluck(:ingredient_id)
-  #     # 材料テーブルからそのレシピの材料idをもつ材料を取得
-  #     @ingredients = Ingredient.where(id: @ingredient_ids).order(name: :ASC)
-  #     @daily_menus = DailyMenu.where(start_time: @from...@to)
-  #   end
   end
 
   def create
