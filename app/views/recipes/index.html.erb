@@ -1,13 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-10">
+ <div class="row">
+  <div class="col-md-10">
 
-      <%# if @recipe.user_id == current_user.id %>
   <h4>レシピ一覧</h4>
 
   <br>
 
-  <div class="category bg-secondary text-light">和食</div>
+   <div class="category bg-secondary text-light">和食</div>
     <% @genre1.each do |genre| %>
      <div class="mb-20">
       <%= link_to recipe_path(genre) do %>
@@ -17,7 +16,7 @@
      </div>
     <% end %>
 
-  <div class="category bg-secondary text-light">洋食</div>
+   <div class="category bg-secondary text-light">洋食</div>
     <% @genre2.each do |genre| %>
      <div class="mb-20">
       <%= link_to recipe_path(genre) do %>
@@ -27,7 +26,7 @@
      </div>
     <% end %>
 
-  <div class="category bg-secondary text-light">中華</div>
+   <div class="category bg-secondary text-light">中華</div>
     <% @genre3.each do |genre| %>
      <div class="mb-20">
       <%= link_to recipe_path(genre) do %>
@@ -37,7 +36,7 @@
      </div>
     <% end %>
 
-  <div class="category bg-secondary text-light">アジア/エスニック</div>
+   <div class="category bg-secondary text-light">アジア/エスニック</div>
     <% @genre4.each do |genre| %>
      <div class="mb-20">
       <%= link_to recipe_path(genre) do %>
@@ -47,7 +46,7 @@
      </div>
     <% end %>
 
-  <div class="category bg-secondary text-light">その他</div>
+   <div class="category bg-secondary text-light">その他</div>
     <% @genre5.each do |genre| %>
      <div class="mb-20">
       <%= link_to recipe_path(genre) do %>
@@ -57,17 +56,16 @@
      </div>
     <% end %>
 
-   <div class="category bg-secondary text-light">すべて</div>
-   <% @recipes.each do |recipe| %>
-     <div class="mb-20">
-      <%= link_to recipe_path(recipe) do %>
+    <div class="category bg-secondary text-light">すべて</div>
+     <% @recipes.each do |recipe| %>
+      <div class="mb-20">
+       <%= link_to recipe_path(recipe) do %>
         <%= attachment_image_tag recipe, :image, format: 'png', size: "50x50", fallback: "no-image.png", class: "border border-white" %>
         <%= recipe.name %>
-      <% end %>
-     </div>
-    <% end %>
+       <% end %>
+      </div>
+     <% end %>
 
-<%# end %>
-</div>
-</div>
+  </div>
+ </div>
 </div>
