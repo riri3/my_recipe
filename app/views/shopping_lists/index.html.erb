@@ -1,94 +1,93 @@
 <div class="container">
 
-<%= form_with model: @memo do |f| %>
+ <%= form_with model: @memo do |f| %>
   <%= render 'layouts/errors', obj: f.object %>
-<% end %>
+ <% end %>
 
 
-    <div class="row">
-      <div class="col-md-10 mx-auto">
-        <h4>Shopping List</h4>
-        <br>
-        <h6>
-          献立に必要なお買い物リストです。<br>
-          （チェックボックスは保存されません。簡易的なチェックにお使いください。）
-        </h6>
-        <br>
-         <div class="wrap">
-          <ul id="tab-menu">
-           <li><a href="#previous_week" class="">先週</a></li>
-           <li><a href="#this_week" class="active">今週</a></li>
-           <li><a href="#next_week" class="">来週</a></li>
-          </ul>
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <h4>Shopping List</h4>
+      <br>
+      <h6>
+        献立に必要なお買い物リストです。<br>
+        （チェックボックスは保存されません。簡易的なチェックにお使いください。）
+      </h6>
+      <br>
+      <div class="wrap">
+        <ul id="tab-menu">
+         <li><a href="#previous_week" class="">先週</a></li>
+         <li><a href="#this_week" class="active">今週</a></li>
+         <li><a href="#next_week" class="">来週</a></li>
+        </ul>
 
-          <div id="tab-contents">
-           <div id="previous_week" class="tab">
-             <% @last_week_menus.each do |last_week_menu| %>
-              <% last_week_menu.recipe.ingredients.each do |ingredient| %>
-               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id=shopping_list>
-                <label class="form-check-label" for=daily_menu>
-                 <%= ingredient.name %>    <!--材料名-->
-                 <%= ingredient.quantity %><!--量-->
-                 <%= ingredient.unit %>    <!--単位-->
-                </label>
-               </div>
-              <% end %>
-             <% end %>
-           </div>
-
-           <div id="this_week" class="tab">
-             <% @this_week_menus.each do |this_week_menu| %>
-              <% this_week_menu.recipe.ingredients.each do |ingredient| %>
-               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id=shopping_list>
-                <label class="form-check-label" for=daily_menu>
-                 <%= ingredient.name %>    <!--材料名-->
-                 <%= ingredient.quantity %><!--量-->
-                 <%= ingredient.unit %>    <!--単位-->
-                </label>
-               </div>
-              <% end %>
-             <% end %>
-            </div>
-
-             <div id="next_week" class="tab">
-              <% @next_week_menus.each do |next_week_menu| %>
-              <% next_week_menu.recipe.ingredients.each do |ingredient| %>
-               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id=shopping_list>
-                <label class="form-check-label" for=daily_menu>
-                 <%= ingredient.name %>    <!--材料名-->
-                 <%= ingredient.quantity %><!--量-->
-                 <%= ingredient.unit %>    <!--単位-->
-                </label>
-               </div>
-              <% end %>
-             <% end %>
-           </div>
+      <div id="tab-contents">
+       <div id="previous_week" class="tab">
+        <% @last_week_menus.each do |last_week_menu| %>
+         <% last_week_menu.recipe.ingredients.each do |ingredient| %>
+          <div class="form-check">
+           <input class="form-check-input" type="checkbox" id=shopping_list>
+           <label class="form-check-label" for=daily_menu>
+            <%= ingredient.name %>    <!--材料名-->
+            <%= ingredient.quantity %><!--量-->
+            <%= ingredient.unit %>    <!--単位-->
+           </label>
           </div>
-
-        <br />
-
-        <%= form_with model: @memo, class: 'js-form' do |f| %>
-          <h6>memo</h6>
-          <%= f.text_field :memo, placeholder: "メモ", placeholder: "おやつを忘れずに買う！", size: "30x5", class: "form-control memo-text" %>
-
-          <br />
-
-          <div class="text-center">
-            <%= f.submit "メモを登録する", class: 'btn btn-outline-secondary' %>
-          </div>
+         <% end %>
         <% end %>
+       </div>
 
-        <div class="all-memos">
-         <% @memos.each do |memo| %>
-           <div id='memo_<%= memo.id %>'>
-            <%= render 'shopping_lists/memo', memo: memo %>
+       <div id="this_week" class="tab">
+         <% @this_week_menus.each do |this_week_menu| %>
+          <% this_week_menu.recipe.ingredients.each do |ingredient| %>
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" id=shopping_list>
+            <label class="form-check-label" for=daily_menu>
+             <%= ingredient.name %>    <!--材料名-->
+             <%= ingredient.quantity %><!--量-->
+             <%= ingredient.unit %>    <!--単位-->
+            </label>
            </div>
+          <% end %>
          <% end %>
         </div>
 
+        <div id="next_week" class="tab">
+         <% @next_week_menus.each do |next_week_menu| %>
+          <% next_week_menu.recipe.ingredients.each do |ingredient| %>
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" id=shopping_list>
+             <label class="form-check-label" for=daily_menu>
+              <%= ingredient.name %>    <!--材料名-->
+              <%= ingredient.quantity %><!--量-->
+              <%= ingredient.unit %>    <!--単位-->
+             </label>
+           </div>
+          <% end %>
+         <% end %>
+       </div>
       </div>
+
+    <br />
+
+    <%= form_with model: @memo, class: 'js-form' do |f| %>
+     <h6>memo</h6>
+      <%= f.text_field :memo, placeholder: "メモ", placeholder: "おやつを忘れずに買う！", size: "30x5", class: "form-control memo-text" %>
+       <br />
+       <div class="text-center">
+        <%= f.submit "メモを登録する", class: 'btn btn-outline-secondary' %>
+       </div>
+      <% end %>
+
+     <div class="all-memos">
+      <% @memos.each do |memo| %>
+       <div id='memo_<%= memo.id %>'>
+        <%= render 'shopping_lists/memo', memo: memo %>
+       </div>
+      <% end %>
+     </div>
     </div>
+  </div>
+ </div>
 </div>
+
